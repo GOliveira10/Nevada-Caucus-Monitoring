@@ -34,8 +34,9 @@ ds %>%
 
 # now calculate the rest of the columns in these little tables: https://nvdems.com/wp-content/uploads/2020/02/Caucus-Memo_-Delegate-Count-Scenarios-and-Tie-Breakers.pdf
 
+
 # with this information we should be able to use all the rules to figure out delegate appointments OTHER THAN the cases where a card draw is needed
-ds %>% 
+ds <- ds %>% 
   filter(viablefinal) %>% 
   mutate(caucus_formula_result = (alignfinal * precinct_delegates) / votes_align1) %>% 
   mutate(formula_decimal = round(caucus_formula_result - floor(caucus_formula_result), 4)) %>% 
@@ -43,5 +44,9 @@ ds %>%
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
-  filter(precinct_delegates != total_del_after_rounding)
-
+  filter(precinct_delegates != total_del_after_rounding) %>% # start here
+  arrange(precinct_full, desc(caucus_formula_result)) %>%
+  mutate(candidate_rank_after_rounding = rank(caucus_formula_result),
+         unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
+  group_by(precinct_full, candidate) %>%
+  mutate(game_of_chance = ifelse((candidate_rank_after_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE))
