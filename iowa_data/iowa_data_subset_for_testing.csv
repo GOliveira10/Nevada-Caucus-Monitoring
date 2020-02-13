@@ -1,0 +1,281 @@
+County,precinct,precinct_full,precinct_delegates,candidate,align1,alignfinal
+Bremer,SU,SU_946681,6,delaneyj,0,0
+Bremer,SU,SU_946681,6,bennetm,0,0
+Bremer,SU,SU_946681,6,bidenj,19,21
+Bremer,SU,SU_946681,6,bloombergm,0,0
+Bremer,SU,SU_946681,6,buttigiegp,15,18
+Bremer,SU,SU_946681,6,gabbardt,0,0
+Bremer,SU,SU_946681,6,klobuchara,8,0
+Bremer,SU,SU_946681,6,other,0,0
+Bremer,SU,SU_946681,6,patrickd,0,0
+Bremer,SU,SU_946681,6,sandersb,13,13
+Bremer,SU,SU_946681,6,steyert,0,0
+Bremer,SU,SU_946681,6,uncommitted,1,0
+Bremer,SU,SU_946681,6,warrene,8,14
+Bremer,SU,SU_946681,6,yanga,2,0
+Clinton,CL22,CL22_946833,12,delaneyj,0,0
+Clinton,CL22,CL22_946833,12,bennetm,0,0
+Clinton,CL22,CL22_946833,12,bidenj,40,47
+Clinton,CL22,CL22_946833,12,bloombergm,0,0
+Clinton,CL22,CL22_946833,12,buttigiegp,36,48
+Clinton,CL22,CL22_946833,12,gabbardt,0,0
+Clinton,CL22,CL22_946833,12,klobuchara,13,0
+Clinton,CL22,CL22_946833,12,other,0,0
+Clinton,CL22,CL22_946833,12,patrickd,0,0
+Clinton,CL22,CL22_946833,12,sandersb,38,41
+Clinton,CL22,CL22_946833,12,steyert,9,0
+Clinton,CL22,CL22_946833,12,uncommitted,1,0
+Clinton,CL22,CL22_946833,12,warrene,21,32
+Clinton,CL22,CL22_946833,12,yanga,14,0
+Emmet,5,5_946995,2,delaneyj,0,0
+Emmet,5,5_946995,2,bennetm,0,0
+Emmet,5,5_946995,2,bidenj,5,0
+Emmet,5,5_946995,2,bloombergm,0,0
+Emmet,5,5_946995,2,buttigiegp,0,0
+Emmet,5,5_946995,2,gabbardt,0,0
+Emmet,5,5_946995,2,klobuchara,7,11
+Emmet,5,5_946995,2,other,0,0
+Emmet,5,5_946995,2,patrickd,0,0
+Emmet,5,5_946995,2,sandersb,0,0
+Emmet,5,5_946995,2,steyert,7,8
+Emmet,5,5_946995,2,uncommitted,2,0
+Emmet,5,5_946995,2,warrene,0,0
+Emmet,5,5_946995,2,yanga,0,0
+Scott,D62,D62_947889,6,delaneyj,0,0
+Scott,D62,D62_947889,6,bennetm,0,0
+Scott,D62,D62_947889,6,bidenj,39,42
+Scott,D62,D62_947889,6,bloombergm,0,0
+Scott,D62,D62_947889,6,buttigiegp,52,60
+Scott,D62,D62_947889,6,gabbardt,0,0
+Scott,D62,D62_947889,6,klobuchara,49,53
+Scott,D62,D62_947889,6,other,0,0
+Scott,D62,D62_947889,6,patrickd,0,0
+Scott,D62,D62_947889,6,sandersb,16,15
+Scott,D62,D62_947889,6,steyert,0,0
+Scott,D62,D62_947889,6,uncommitted,0,0
+Scott,D62,D62_947889,6,warrene,37,37
+Scott,D62,D62_947889,6,yanga,16,0
+Story,38,38_947972,1,delaneyj,0,0
+Story,38,38_947972,1,bennetm,0,0
+Story,38,38_947972,1,bidenj,0,0
+Story,38,38_947972,1,bloombergm,0,0
+Story,38,38_947972,1,buttigiegp,0,0
+Story,38,38_947972,1,gabbardt,0,0
+Story,38,38_947972,1,klobuchara,2,0
+Story,38,38_947972,1,other,0,0
+Story,38,38_947972,1,patrickd,0,0
+Story,38,38_947972,1,sandersb,0,0
+Story,38,38_947972,1,steyert,0,0
+Story,38,38_947972,1,uncommitted,0,0
+Story,38,38_947972,1,warrene,1,0
+Story,38,38_947972,1,yanga,1,1
+Dallas,WK4,WK4_946895,5,delaneyj,0,0
+Dallas,WK4,WK4_946895,5,bennetm,2,0
+Dallas,WK4,WK4_946895,5,bidenj,32,39
+Dallas,WK4,WK4_946895,5,bloombergm,0,0
+Dallas,WK4,WK4_946895,5,buttigiegp,64,80
+Dallas,WK4,WK4_946895,5,gabbardt,0,0
+Dallas,WK4,WK4_946895,5,klobuchara,40,48
+Dallas,WK4,WK4_946895,5,other,0,0
+Dallas,WK4,WK4_946895,5,patrickd,0,0
+Dallas,WK4,WK4_946895,5,sandersb,28,0
+Dallas,WK4,WK4_946895,5,steyert,6,0
+Dallas,WK4,WK4_946895,5,uncommitted,0,0
+Dallas,WK4,WK4_946895,5,warrene,33,57
+Dallas,WK4,WK4_946895,5,yanga,29,0
+Johnson,UN,UN_947248,2,delaneyj,0,0
+Johnson,UN,UN_947248,2,bennetm,0,0
+Johnson,UN,UN_947248,2,bidenj,16,20
+Johnson,UN,UN_947248,2,bloombergm,0,0
+Johnson,UN,UN_947248,2,buttigiegp,21,30
+Johnson,UN,UN_947248,2,gabbardt,0,0
+Johnson,UN,UN_947248,2,klobuchara,11,0
+Johnson,UN,UN_947248,2,other,0,2
+Johnson,UN,UN_947248,2,patrickd,0,0
+Johnson,UN,UN_947248,2,sandersb,11,0
+Johnson,UN,UN_947248,2,steyert,4,0
+Johnson,UN,UN_947248,2,uncommitted,1,2
+Johnson,UN,UN_947248,2,warrene,26,40
+Johnson,UN,UN_947248,2,yanga,4,0
+Montgomery,3,3_947518,12,delaneyj,0,0
+Montgomery,3,3_947518,12,bennetm,0,0
+Montgomery,3,3_947518,12,bidenj,14,18
+Montgomery,3,3_947518,12,bloombergm,0,0
+Montgomery,3,3_947518,12,buttigiegp,14,18
+Montgomery,3,3_947518,12,gabbardt,0,0
+Montgomery,3,3_947518,12,klobuchara,15,22
+Montgomery,3,3_947518,12,other,0,0
+Montgomery,3,3_947518,12,patrickd,0,0
+Montgomery,3,3_947518,12,sandersb,5,1
+Montgomery,3,3_947518,12,steyert,0,0
+Montgomery,3,3_947518,12,uncommitted,2,0
+Montgomery,3,3_947518,12,warrene,4,0
+Montgomery,3,3_947518,12,yanga,5,0
+Johnson,IC.23,IC.23_947228,12,delaneyj,0,0
+Johnson,IC.23,IC.23_947228,12,bennetm,1,0
+Johnson,IC.23,IC.23_947228,12,bidenj,73,0
+Johnson,IC.23,IC.23_947228,12,bloombergm,1,0
+Johnson,IC.23,IC.23_947228,12,buttigiegp,115,147
+Johnson,IC.23,IC.23_947228,12,gabbardt,2,0
+Johnson,IC.23,IC.23_947228,12,klobuchara,90,80
+Johnson,IC.23,IC.23_947228,12,other,0,0
+Johnson,IC.23,IC.23_947228,12,patrickd,0,0
+Johnson,IC.23,IC.23_947228,12,sandersb,172,192
+Johnson,IC.23,IC.23_947228,12,steyert,21,0
+Johnson,IC.23,IC.23_947228,12,uncommitted,4,83
+Johnson,IC.23,IC.23_947228,12,warrene,251,299
+Johnson,IC.23,IC.23_947228,12,yanga,24,0
+Buchanan,AR,AR_946688,5,delaneyj,0,0
+Buchanan,AR,AR_946688,5,bennetm,0,0
+Buchanan,AR,AR_946688,5,bidenj,20,22
+Buchanan,AR,AR_946688,5,bloombergm,0,0
+Buchanan,AR,AR_946688,5,buttigiegp,8,10
+Buchanan,AR,AR_946688,5,gabbardt,0,0
+Buchanan,AR,AR_946688,5,klobuchara,3,0
+Buchanan,AR,AR_946688,5,other,0,0
+Buchanan,AR,AR_946688,5,patrickd,0,0
+Buchanan,AR,AR_946688,5,sandersb,6,6
+Buchanan,AR,AR_946688,5,steyert,0,0
+Buchanan,AR,AR_946688,5,uncommitted,0,0
+Buchanan,AR,AR_946688,5,warrene,1,0
+Buchanan,AR,AR_946688,5,yanga,0,0
+Lee,KE4,KE4_947314,6,delaneyj,0,0
+Lee,KE4,KE4_947314,6,bennetm,0,0
+Lee,KE4,KE4_947314,6,bidenj,4,0
+Lee,KE4,KE4_947314,6,bloombergm,0,0
+Lee,KE4,KE4_947314,6,buttigiegp,14,21
+Lee,KE4,KE4_947314,6,gabbardt,2,0
+Lee,KE4,KE4_947314,6,klobuchara,0,0
+Lee,KE4,KE4_947314,6,other,0,0
+Lee,KE4,KE4_947314,6,patrickd,0,0
+Lee,KE4,KE4_947314,6,sandersb,10,10
+Lee,KE4,KE4_947314,6,steyert,1,0
+Lee,KE4,KE4_947314,6,uncommitted,0,0
+Lee,KE4,KE4_947314,6,warrene,2,0
+Lee,KE4,KE4_947314,6,yanga,0,0
+Page,SD1,SD1_947574,6,delaneyj,0,0
+Page,SD1,SD1_947574,6,bennetm,0,0
+Page,SD1,SD1_947574,6,bidenj,2,3
+Page,SD1,SD1_947574,6,bloombergm,0,0
+Page,SD1,SD1_947574,6,buttigiegp,10,10
+Page,SD1,SD1_947574,6,gabbardt,0,0
+Page,SD1,SD1_947574,6,klobuchara,2,2
+Page,SD1,SD1_947574,6,other,0,0
+Page,SD1,SD1_947574,6,patrickd,0,0
+Page,SD1,SD1_947574,6,sandersb,22,24
+Page,SD1,SD1_947574,6,steyert,2,0
+Page,SD1,SD1_947574,6,uncommitted,0,0
+Page,SD1,SD1_947574,6,warrene,3,2
+Page,SD1,SD1_947574,6,yanga,2,2
+Polk,ANK 05,ANK 05_947712,10,delaneyj,0,0
+Polk,ANK 05,ANK 05_947712,10,bennetm,1,0
+Polk,ANK 05,ANK 05_947712,10,bidenj,39,39
+Polk,ANK 05,ANK 05_947712,10,bloombergm,0,0
+Polk,ANK 05,ANK 05_947712,10,buttigiegp,61,68
+Polk,ANK 05,ANK 05_947712,10,gabbardt,1,0
+Polk,ANK 05,ANK 05_947712,10,klobuchara,38,39
+Polk,ANK 05,ANK 05_947712,10,other,0,0
+Polk,ANK 05,ANK 05_947712,10,patrickd,0,0
+Polk,ANK 05,ANK 05_947712,10,sandersb,62,67
+Polk,ANK 05,ANK 05_947712,10,steyert,8,0
+Polk,ANK 05,ANK 05_947712,10,uncommitted,2,0
+Polk,ANK 05,ANK 05_947712,10,warrene,43,43
+Polk,ANK 05,ANK 05_947712,10,yanga,5,0
+Linn,CR27,CR27_1593624,5,delaneyj,0,0
+Linn,CR27,CR27_1593624,5,bennetm,0,0
+Linn,CR27,CR27_1593624,5,bidenj,26,37
+Linn,CR27,CR27_1593624,5,bloombergm,0,0
+Linn,CR27,CR27_1593624,5,buttigiegp,18,0
+Linn,CR27,CR27_1593624,5,gabbardt,1,0
+Linn,CR27,CR27_1593624,5,klobuchara,10,0
+Linn,CR27,CR27_1593624,5,other,0,0
+Linn,CR27,CR27_1593624,5,patrickd,0,0
+Linn,CR27,CR27_1593624,5,sandersb,62,65
+Linn,CR27,CR27_1593624,5,steyert,6,0
+Linn,CR27,CR27_1593624,5,uncommitted,0,0
+Linn,CR27,CR27_1593624,5,warrene,34,40
+Linn,CR27,CR27_1593624,5,yanga,5,0
+Linn,CR19,CR19_1593616,7,delaneyj,0,0
+Linn,CR19,CR19_1593616,7,bennetm,0,0
+Linn,CR19,CR19_1593616,7,bidenj,38,43
+Linn,CR19,CR19_1593616,7,bloombergm,0,0
+Linn,CR19,CR19_1593616,7,buttigiegp,47,62
+Linn,CR19,CR19_1593616,7,gabbardt,0,0
+Linn,CR19,CR19_1593616,7,klobuchara,27,0
+Linn,CR19,CR19_1593616,7,other,0,0
+Linn,CR19,CR19_1593616,7,patrickd,0,0
+Linn,CR19,CR19_1593616,7,sandersb,60,65
+Linn,CR19,CR19_1593616,7,steyert,6,0
+Linn,CR19,CR19_1593616,7,uncommitted,0,0
+Linn,CR19,CR19_1593616,7,warrene,50,59
+Linn,CR19,CR19_1593616,7,yanga,6,0
+Polk,DM 018,DM 018_947619,5,delaneyj,0,0
+Polk,DM 018,DM 018_947619,5,bennetm,0,0
+Polk,DM 018,DM 018_947619,5,bidenj,15,15
+Polk,DM 018,DM 018_947619,5,bloombergm,0,0
+Polk,DM 018,DM 018_947619,5,buttigiegp,2,0
+Polk,DM 018,DM 018_947619,5,gabbardt,0,0
+Polk,DM 018,DM 018_947619,5,klobuchara,15,20
+Polk,DM 018,DM 018_947619,5,other,0,0
+Polk,DM 018,DM 018_947619,5,patrickd,0,0
+Polk,DM 018,DM 018_947619,5,sandersb,37,37
+Polk,DM 018,DM 018_947619,5,steyert,6,0
+Polk,DM 018,DM 018_947619,5,uncommitted,0,0
+Polk,DM 018,DM 018_947619,5,warrene,20,22
+Polk,DM 018,DM 018_947619,5,yanga,0,0
+Polk,ANK 02,ANK 02_947709,10,delaneyj,0,0
+Polk,ANK 02,ANK 02_947709,10,bennetm,0,0
+Polk,ANK 02,ANK 02_947709,10,bidenj,57,63
+Polk,ANK 02,ANK 02_947709,10,bloombergm,0,0
+Polk,ANK 02,ANK 02_947709,10,buttigiegp,128,156
+Polk,ANK 02,ANK 02_947709,10,gabbardt,0,0
+Polk,ANK 02,ANK 02_947709,10,klobuchara,40,0
+Polk,ANK 02,ANK 02_947709,10,other,0,0
+Polk,ANK 02,ANK 02_947709,10,patrickd,0,0
+Polk,ANK 02,ANK 02_947709,10,sandersb,49,52
+Polk,ANK 02,ANK 02_947709,10,steyert,0,0
+Polk,ANK 02,ANK 02_947709,10,uncommitted,0,0
+Polk,ANK 02,ANK 02_947709,10,warrene,60,62
+Polk,ANK 02,ANK 02_947709,10,yanga,1,0
+Scott,D44,D44_947883,5,delaneyj,0,0
+Scott,D44,D44_947883,5,bennetm,0,0
+Scott,D44,D44_947883,5,bidenj,14,0
+Scott,D44,D44_947883,5,bloombergm,0,0
+Scott,D44,D44_947883,5,buttigiegp,20,22
+Scott,D44,D44_947883,5,gabbardt,0,0
+Scott,D44,D44_947883,5,klobuchara,1,0
+Scott,D44,D44_947883,5,other,0,4
+Scott,D44,D44_947883,5,patrickd,0,0
+Scott,D44,D44_947883,5,sandersb,49,49
+Scott,D44,D44_947883,5,steyert,0,0
+Scott,D44,D44_947883,5,uncommitted,0,0
+Scott,D44,D44_947883,5,warrene,23,28
+Scott,D44,D44_947883,5,yanga,17,21
+Scott,BG,BG_947861,4,delaneyj,0,0
+Scott,BG,BG_947861,4,bennetm,0,0
+Scott,BG,BG_947861,4,bidenj,18,18
+Scott,BG,BG_947861,4,bloombergm,0,0
+Scott,BG,BG_947861,4,buttigiegp,18,18
+Scott,BG,BG_947861,4,gabbardt,0,0
+Scott,BG,BG_947861,4,klobuchara,0,0
+Scott,BG,BG_947861,4,other,0,0
+Scott,BG,BG_947861,4,patrickd,0,0
+Scott,BG,BG_947861,4,sandersb,40,40
+Scott,BG,BG_947861,4,steyert,0,0
+Scott,BG,BG_947861,4,uncommitted,0,0
+Scott,BG,BG_947861,4,warrene,18,18
+Scott,BG,BG_947861,4,yanga,0,0
+Scott,D43,D43_947882,5,delaneyj,0,0
+Scott,D43,D43_947882,5,bennetm,0,0
+Scott,D43,D43_947882,5,bidenj,29,34
+Scott,D43,D43_947882,5,bloombergm,1,0
+Scott,D43,D43_947882,5,buttigiegp,40,42
+Scott,D43,D43_947882,5,gabbardt,0,0
+Scott,D43,D43_947882,5,klobuchara,2,0
+Scott,D43,D43_947882,5,other,0,0
+Scott,D43,D43_947882,5,patrickd,0,0
+Scott,D43,D43_947882,5,sandersb,53,58
+Scott,D43,D43_947882,5,steyert,0,0
+Scott,D43,D43_947882,5,uncommitted,5,0
+Scott,D43,D43_947882,5,warrene,38,44
+Scott,D43,D43_947882,5,yanga,10,0
