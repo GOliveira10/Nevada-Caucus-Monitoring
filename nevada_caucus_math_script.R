@@ -36,7 +36,8 @@ ds %>%
 
 
 # with this information we should be able to use all the rules to figure out delegate appointments OTHER THAN the cases where a card draw is needed
-ds <- ds %>% 
+
+ds %>% 
   filter(viablefinal) %>% 
   mutate(caucus_formula_result = (alignfinal * precinct_delegates) / votes_align1) %>% 
   mutate(formula_decimal = round(caucus_formula_result - floor(caucus_formula_result), 4)) %>% 
@@ -46,7 +47,10 @@ ds <- ds %>%
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
   filter(precinct_delegates != total_del_after_rounding) %>% # start here
   arrange(precinct_full, desc(caucus_formula_result)) %>%
-  mutate(candidate_rank_after_rounding = rank(caucus_formula_result),
+  mutate(candidate_rank_before_rounding = rank(caucus_formula_result),
          unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
   group_by(precinct_full, candidate) %>%
-  mutate(game_of_chance = ifelse((candidate_rank_after_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE))
+  mutate(game_of_chance = ifelse((candidate_rank_before_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE)) %>%
+  group_by(precinct_full) %>%
+  mutate(precinct_game_of_chance = max(game_of_chance)) ## To operate only on cases without game of chance
+  
