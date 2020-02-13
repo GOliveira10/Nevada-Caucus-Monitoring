@@ -17,16 +17,14 @@ ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv")
 ds <- ds %>% 
   group_by(precinct_full) %>% 
   mutate(votes_align1 = sum(align1)) %>% 
-  mutate(prop_align1 = round(align1 / votes_align1, digits = 4), 
-         prop_alignfinal = round(alignfinal / votes_align1, digits = 4)) %>% 
   mutate(viability_threshold = case_when(
-    precinct_delegates >= 4 ~ 0.15,
-    precinct_delegates == 3 ~ 1/6,
-    precinct_delegates == 2 ~ 0.25,
-    precinct_delegates == 1 ~ 0.5,
+    precinct_delegates >= 4 ~ round(0.15*votes_align1),
+    precinct_delegates == 3 ~ round((1/6)*votes_align1),
+    precinct_delegates == 2 ~ round(0.25*votes_align1),
+    precinct_delegates == 1 ~ round(0.5*votes_align1),
     TRUE ~ NA_real_
-  )) %>% 
-  mutate(viable1 = prop_align1 >= viability_threshold, viablefinal = prop_alignfinal >= viability_threshold) %>% 
+  ))%>% 
+  mutate(viable1 = align1 >= viability_threshold, viablefinal = alignfinal >= viability_threshold) %>% 
   ungroup()
 
 ds %>% 
@@ -54,3 +52,21 @@ ds %>%
   group_by(precinct_full) %>%
   mutate(precinct_game_of_chance = max(game_of_chance)) ## To operate only on cases without game of chance
   
+
+#### delegate appointment scenarios ####
+
+# 1) number of delegates after rounding is equal to number of precinct delegates: no further action required
+
+# 2) number of delegates after rounding is HIGHER than number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is FARTHEST from after_rounding + 1:
+  # a) if this candidate only has 1 delegate, then NO delegates are lost and you actually give out precinct_delegates + 1
+  # b) if the farthest candidate has 2 or more delegates, then subtract 1 delegate from this candidate
+  # c) if there is a decimal tie, then a game of chance occurs. We should just flag these scenarios and check to see that out of the tied candidates, only 1 of them has exactly 1 delegate taken away
+
+# 3) number of delegates after rounding is LOWER than the number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is CLOSEST to after_rounding + 1:
+  # a) if there is only 1 extra delegate, it goes to the CLOSEST candidate
+  # b) if there are more than 1 extra delegates, they go in order of descending CLOSENESS and loop back to the CLOSEST if need be
+  ### it's never mentioned what happens if there is a TIE for CLOSEST in this scenario- presumably it's a game of chance but it's never explicitly stated
+
+
+
+
