@@ -35,15 +35,21 @@ ds %>%
 
 # with this information we should be able to use all the rules to figure out delegate appointments OTHER THAN the cases where a card draw is needed
 
-ds %>% 
-  filter(viablefinal) %>% 
-  mutate(caucus_formula_result = (alignfinal * precinct_delegates) / votes_align1) %>% 
+ds <- ds %>% 
+  mutate(caucus_formula_result = case_when(
+    viablefinal ~ (alignfinal * precinct_delegates) / votes_align1,
+    TRUE ~ 0
+  )) %>% 
+  #select(precinct_full, candidate, viablefinal, caucus_formula_result) %>% 
+  #mutate(caucus_formula_result = (alignfinal * precinct_delegates) / votes_align1) %>% 
   mutate(formula_decimal = round(caucus_formula_result - floor(caucus_formula_result), 4)) %>% 
-  select(precinct_full, precinct_delegates, candidate, alignfinal, caucus_formula_result, formula_decimal) %>% 
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
-  filter(precinct_delegates != total_del_after_rounding) %>% # start here
+  filter(precinct_delegates != total_del_after_rounding) %>% 
+  ungroup()
+
+ds %>% # start here
   arrange(precinct_full, desc(caucus_formula_result)) %>%
   mutate(candidate_rank_before_rounding = rank(caucus_formula_result),
          unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
@@ -57,10 +63,42 @@ ds %>%
 
 # 1) number of delegates after rounding is equal to number of precinct delegates: no further action required
 
+ds %>% 
+  #filter(total_del_after_rounding == precinct_delegates) %>% 
+  select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates) %>% 
+  print(n = Inf)
+
+### ok there is a precinct in here where total delegates after rounding is 2 higher than precinct delegates
+
+ds %>% 
+  filter(precinct == "ANK 05") %>% 
+  select(County, precinct, candidate, alignfinal, votes_align1, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates)
+
+
 # 2) number of delegates after rounding is HIGHER than number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is FARTHEST from after_rounding + 1:
-  # a) if this candidate only has 1 delegate, then NO delegates are lost and you actually give out precinct_delegates + 1
-  # b) if the farthest candidate has 2 or more delegates, then subtract 1 delegate from this candidate
-  # c) if there is a decimal tie, then a game of chance occurs. We should just flag these scenarios and check to see that out of the tied candidates, only 1 of them has exactly 1 delegate taken away
+  # a) if there is a decimal tie, then a game of chance occurs. We should just flag these scenarios and check to see that out of the tied candidates, only 1 of them has exactly 1 delegate taken away
+  # b) if this candidate only has 1 delegate, then NO delegates are lost and you actually give out precinct_delegates + 1
+  # c) if the farthest candidate has 2 or more delegates, then subtract 1 delegate from this candidate
+
+
+too_many_dels <- ds %>% 
+  filter(total_del_after_rounding > precinct_delegates, viablefinal) %>% 
+  mutate(distance_next = ceiling(caucus_formula_result) - caucus_formula_result) %>% 
+  group_by(precinct_full) %>% 
+  mutate(farthest_rank = rank(desc(distance_next), ties.method = "min")) %>% 
+  ungroup() %>% 
+  arrange(precinct_full, farthest_rank)
+
+too_many_dels %>% 
+  mutate(final_del = case_when(
+    farthest_rank == 1 & after_rounding > 1 ~ after_rounding - 1,
+    TRUE ~ after_rounding
+  )) %>% 
+  group_by(precinct_full) %>% 
+  mutate(total_final_del = sum(final_del)) %>% 
+  ungroup() %>% 
+  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, farthest_rank, final_del, total_final_del)
+
 
 # 3) number of delegates after rounding is LOWER than the number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is CLOSEST to after_rounding + 1:
   # a) if there is only 1 extra delegate, it goes to the CLOSEST candidate
