@@ -89,7 +89,8 @@ too_many_dels <- too_many_dels %>%
   group_by(precinct_full) %>% 
   mutate(total_final_del = sum(final_del)) %>% 
   ungroup() %>% 
-  select(precinct_full, candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, game_of_chance, farthest_rank, final_del, total_final_del)
+  select(precinct_full, candidate, caucus_formula_result, after_rounding, precinct_delegates, 
+         total_del_after_rounding, game_of_chance, farthest_rank, final_del, total_final_del)
 
 
 # 3) number of delegates after rounding is LOWER than the number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is CLOSEST to after_rounding + 1:
@@ -98,21 +99,56 @@ too_many_dels <- too_many_dels %>%
   ### it's never mentioned what happens if there is a TIE for CLOSEST in this scenario- presumably it's a game of chance but it's never explicitly stated
 
 
-not_enough_dels <- ds %>% 
-  filter(total_del_after_rounding < precinct_delegates, viablefinal) %>%
-  group_by(precinct_full) %>%
+## This function successfully gets the right number of total final delegates in each precinct, seems to allocate correctly when I spot check,
+## and correctly solves Principle 3 Example B in the handbook. I think it's good but I can barely explain it to myself lol. Check my logic here.
+
+allocate <- function(viable_candidates, delegates_remaining, farthest_rank){
+  
+  if (delegates_remaining < viable_candidates) {
+    if (farthest_rank %in% seq(from = 1, to = delegates_remaining, by = 1)) {
+      return(1)
+    } else{
+      return(0)
+    }
+  }
+  else{
+    divisibility <- delegates_remaining %% viable_candidates
+    
+    if (divisibility == 0) {
+      return(delegates_remaining / viable_candidates)
+      
+    } else{
+      even_split <- floor(delegates_remaining / viable_candidates)
+      
+      if (farthest_rank <= divisibility) {
+        even_split <- even_split + 1
+      }
+      
+      return(even_split)
+      
+    }
+  }
+  
+}
+
+ds %>% group_by(precinct_full) %>% 
+  filter(total_del_after_rounding < precinct_delegates, viablefinal) %>% 
+  mutate(distance_next = ceiling(caucus_formula_result) - caucus_formula_result) %>% 
+  group_by(precinct_full) %>% 
   mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
-         closest_rank = rank(desc(formula_decimal))) %>%
-  mutate(game_of_chance = ifelse(closest_rank %% 1 != 0 & sum(viablefinal) %% delegates_remaining != 0, TRUE, FALSE)) %>%
-  arrange(closest_rank) %>%
+         viable_candidates = sum(viablefinal),
+         farthest_rank = rank(desc(distance_next))) %>% # Changed to average ranking
+  mutate(game_of_chance = ifelse(farthest_rank %% 1 != 0 & sum(viablefinal) %% delegates_remaining != 0, TRUE, FALSE))  %>% # Follow me on this. If rank with average tie method isn't equally divisible, then that's a tie, and it only matters if the number of remaining delegates can't be equally divided among viable candidates
+  ungroup() %>% 
   group_by(precinct_full, candidate) %>%
-  mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining & !game_of_chance, after_rounding + 1, after_rounding)) %>%
+  mutate(delegates_to_allocate = allocate(viable_candidates, delegates_remaining, farthest_rank)) %>% 
+  mutate(final_del = ifelse(!game_of_chance, after_rounding + delegates_to_allocate, after_rounding)) %>%
   group_by(precinct_full) %>%
-  mutate(total_final_del = sum(final_del)) %>% 
-  ungroup() %>%
-  select(precinct_full, candidate,  caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, game_of_chance, closest_rank, delegates_remaining, final_del, total_final_del)  %>% 
-  arrange(precinct_full) 
-#  filter(precinct_delegates != total_final_del) ## 0 rows, seems like it works
+  mutate(total_final_del = sum(final_del)) %>%
+  select(precinct_delegates, after_rounding, final_del, total_del_after_rounding, distance_next, farthest_rank, delegates_to_allocate, delegates_remaining,  total_final_del) %>%
+  arrange(precinct_full, farthest_rank) 
+  
+
 
 
 #### Validate that after splitting all these groups off every viable candidate in every precinct makes it to the end
