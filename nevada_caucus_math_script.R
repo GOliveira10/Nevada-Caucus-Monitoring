@@ -45,7 +45,7 @@ ds <- ds %>%
   mutate(formula_decimal = round(caucus_formula_result - floor(caucus_formula_result), 4)) %>% 
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
-  mutate(total_del_after_rounding = sum(after_rounding)) %>% 
+  mutate(total_del_after_rounding = sum(after_rounding, na.rm = TRUE)) %>% 
  # filter(precinct_delegates != total_del_after_rounding) %>% This clause breaks scenario #1 down there
   ungroup()
 
@@ -55,9 +55,9 @@ ds <- ds %>%
 # 1) number of delegates after rounding is equal to number of precinct delegates: no further action required
 
 do_nothing <- ds %>% 
-  filter(total_del_after_rounding == precinct_delegates) %>% 
-  select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates, final_del = after_rounding, total_final_del = total_del_after_rounding) 
-
+  filter(total_del_after_rounding == precinct_delegates, viablefinal) %>% 
+  select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates,final_del = after_rounding, total_final_del = total_del_after_rounding) %>% # duplicate columns to align with processed data
+mutate(game_of_chance = FALSE)
 ### ok there is a precinct in here where total delegates after rounding is 2 higher than precinct delegates
 
 ds %>% 
@@ -82,13 +82,13 @@ too_many_dels <- ds %>%
 
 too_many_dels <- too_many_dels %>% 
   mutate(final_del = case_when(
-    farthest_rank == 1 & after_rounding > 1 & !game_of_chance ~ after_rounding - 1, # Don't allocate if game of chance is required
+    farthest_rank == 1 & after_rounding > 1 & !game_of_chance ~ after_rounding - 1, # Don't allocate if game of chance is required, handle later
     TRUE ~ after_rounding
   )) %>% 
   group_by(precinct_full) %>% 
   mutate(total_final_del = sum(final_del)) %>% 
   ungroup() %>% 
-  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, farthest_rank, final_del, total_final_del)
+  select(precinct_full, candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, game_of_chance, farthest_rank, final_del, total_final_del)
 
 
 # 3) number of delegates after rounding is LOWER than the number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is CLOSEST to after_rounding + 1:
@@ -108,21 +108,32 @@ not_enough_dels <- ds %>%
   mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining & !game_of_chance, after_rounding + 1, after_rounding)) %>%
   group_by(precinct_full) %>%
   mutate(total_final_del = sum(final_del)) %>% 
-  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, closest_rank, delegates_remaining, final_del, total_final_del)  %>% 
+  ungroup() %>%
+  select(precinct_full, candidate,  caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, game_of_chance, closest_rank, delegates_remaining, final_del, total_final_del)  %>% 
   arrange(precinct_full) 
 #  filter(precinct_delegates != total_final_del) ## 0 rows, seems like it works
 
 
 #### Validate that after splitting all these groups off every viable candidate in every precinct makes it to the end
 
-viable_after_filtering <- bind_rows(do_nothing, too_many_dels, not_enough_dels) %>%
-  filter(viablefinal) %>% select(precinct_full, candidate) %>% distinct()
+processed_ds <- bind_rows(do_nothing, too_many_dels) %>% bind_rows(not_enough_dels)
 
-viable_original_set <- ds %>% filter(viablefinal) %>% select(precinct_full, candidate) %>% distinct()
+viable_after_filtering <- processed_ds %>% select(precinct_full, candidate) %>% distinct()
 
-identical(viable_after_filtering, viable_original_set) # This should be true I think
+viable_original_set <- ds %>% 
+  filter(viablefinal) %>% 
+  select(precinct_full, candidate) %>% distinct()
+
+viable_original_set %>% anti_join(viable_after_filtering) # all viable candidates present after processing. dope.
+
 
 
 #### Games of Chance ####
 
 # Need a function here that updates games of chance as we get results
+
+processed_ds %>%
+  group_by(game_of_chance) %>%
+  summarize(n())
+
+## Only two rows (one game two candidates) where this is an issue
