@@ -110,12 +110,12 @@ ds %>%
   filter(total_del_after_rounding < precinct_delegates, viablefinal) %>%
   group_by(precinct_full) %>%
   mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
-         formula_rank = rank(formula_decimal)) %>% 
-  arrange(formula_rank) %>%
+         closest_rank = rank(formula_decimal)) %>% 
+  arrange(closest_rank) %>%
   group_by(precinct_full, candidate) %>%
-  mutate(after_reallocation = ifelse(formula_rank %in% 1:delegates_remaining, after_rounding + 1, after_rounding)) %>%
+  mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining, after_rounding + 1, after_rounding)) %>%
   group_by(precinct_full) %>%
-  mutate(total_del_after_reallocation = sum(after_reallocation)) %>% 
-  filter(precinct_delegates != total_del_after_reallocation) ## 0 rows, seems like it works
+  mutate(total_final_del = sum(final_del)) # %>% 
+#  filter(precinct_delegates != total_final_del) ## 0 rows, seems like it works
 
 
