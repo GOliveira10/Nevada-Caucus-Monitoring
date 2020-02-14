@@ -46,27 +46,17 @@ ds <- ds %>%
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
-  filter(precinct_delegates != total_del_after_rounding) %>% 
+ # filter(precinct_delegates != total_del_after_rounding) %>% This clause breaks scenario #1 down there
   ungroup()
 
-ds %>% # start here
-  arrange(precinct_full, desc(caucus_formula_result)) %>%
-  mutate(candidate_rank_before_rounding = rank(caucus_formula_result),
-         unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
-  group_by(precinct_full, candidate) %>%
-  mutate(game_of_chance = ifelse((candidate_rank_before_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE)) %>%
-  group_by(precinct_full) %>%
-  mutate(precinct_game_of_chance = max(game_of_chance)) ## To operate only on cases without game of chance
-  
 
 #### delegate appointment scenarios ####
 
 # 1) number of delegates after rounding is equal to number of precinct delegates: no further action required
 
-ds %>% 
+do_nothing <- ds %>% 
   filter(total_del_after_rounding == precinct_delegates) %>% 
-  select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates) %>% 
-  print(n = Inf)
+  select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates, final_del = after_rounding, total_final_del = total_del_after_rounding) 
 
 ### ok there is a precinct in here where total delegates after rounding is 2 higher than precinct delegates
 
@@ -89,7 +79,7 @@ too_many_dels <- ds %>%
   ungroup() %>% 
   arrange(precinct_full, farthest_rank)
 
-too_many_dels %>% 
+too_many_dels <- too_many_dels %>% 
   mutate(final_del = case_when(
     farthest_rank == 1 & after_rounding > 1 ~ after_rounding - 1,
     TRUE ~ after_rounding
@@ -106,7 +96,7 @@ too_many_dels %>%
   ### it's never mentioned what happens if there is a TIE for CLOSEST in this scenario- presumably it's a game of chance but it's never explicitly stated
 
 
-ds %>% 
+not_enough_dels <- ds %>% 
   filter(total_del_after_rounding < precinct_delegates, viablefinal) %>%
   group_by(precinct_full) %>%
   mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
@@ -116,7 +106,27 @@ ds %>%
   mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining, after_rounding + 1, after_rounding)) %>%
   group_by(precinct_full) %>%
   mutate(total_final_del = sum(final_del)) %>% 
-  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, closest_rank, final_del, total_final_del)  %>% arrange(precinct_full) 
+  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, closest_rank, delegates_remaining, final_del, total_final_del)  %>% arrange(precinct_full) 
 #  filter(precinct_delegates != total_final_del) ## 0 rows, seems like it works
 
 
+#### Validate that after splitting all these groups off every viable candidate in every precinct makes it to the end
+
+viable_after_filtering <- bind_rows(do_nothing, too_many_dels, not_enough_dels) %>%
+  filter(viablefinal) %>% select(precinct_full, candidate) %>% distinct()
+
+viable_original_set <- ds %>% filter(viablefinal) %>% select(precinct_full, candidate) %>% distinct()
+
+identical(viable_after_filtering, viable_original_set) # This should be true I think
+
+
+#### Games of Chance ####
+
+ds %>% 
+  arrange(precinct_full, desc(caucus_formula_result)) %>%
+  mutate(candidate_rank_before_rounding = rank(caucus_formula_result),
+         unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
+  group_by(precinct_full, candidate) %>%
+  mutate(game_of_chance = ifelse((candidate_rank_before_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE)) %>%
+  group_by(precinct_full) %>%
+  mutate(precinct_game_of_chance = max(game_of_chance)) ## To operate only on cases without game of chance
