@@ -64,7 +64,7 @@ ds %>% # start here
 # 1) number of delegates after rounding is equal to number of precinct delegates: no further action required
 
 ds %>% 
-  #filter(total_del_after_rounding == precinct_delegates) %>% 
+  filter(total_del_after_rounding == precinct_delegates) %>% 
   select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates) %>% 
   print(n = Inf)
 
@@ -106,5 +106,16 @@ too_many_dels %>%
   ### it's never mentioned what happens if there is a TIE for CLOSEST in this scenario- presumably it's a game of chance but it's never explicitly stated
 
 
+ds %>% 
+  filter(total_del_after_rounding < precinct_delegates, viablefinal) %>%
+  group_by(precinct_full) %>%
+  mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
+         formula_rank = rank(formula_decimal)) %>% 
+  arrange(formula_rank) %>%
+  group_by(precinct_full, candidate) %>%
+  mutate(after_reallocation = ifelse(formula_rank %in% 1:delegates_remaining, after_rounding + 1, after_rounding)) %>%
+  group_by(precinct_full) %>%
+  mutate(total_del_after_reallocation = sum(after_reallocation)) %>% 
+  filter(precinct_delegates != total_del_after_reallocation) ## 0 rows, seems like it works
 
 
