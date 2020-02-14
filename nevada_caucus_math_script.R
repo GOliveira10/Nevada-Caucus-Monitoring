@@ -58,6 +58,7 @@ do_nothing <- ds %>%
   filter(total_del_after_rounding == precinct_delegates, viablefinal) %>% 
   select(precinct_full, candidate, viablefinal, caucus_formula_result, after_rounding, total_del_after_rounding, precinct_delegates,final_del = after_rounding, total_final_del = total_del_after_rounding) %>% # duplicate columns to align with processed data
 mutate(game_of_chance = FALSE)
+
 ### ok there is a precinct in here where total delegates after rounding is 2 higher than precinct delegates
 
 ds %>% 
@@ -115,6 +116,7 @@ not_enough_dels <- ds %>%
 
 
 #### Validate that after splitting all these groups off every viable candidate in every precinct makes it to the end
+
 
 processed_ds <- bind_rows(do_nothing, too_many_dels) %>% bind_rows(not_enough_dels)
 
