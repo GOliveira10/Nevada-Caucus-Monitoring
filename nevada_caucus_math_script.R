@@ -8,7 +8,8 @@ library(tidyverse)
 
 # let's just use a subset of some Iowa data to test
 
-ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv")
+ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv") %>% 
+  rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id))
 
 # calculate total votes and figure out thresholds based on delegate counts
 # IN THE ACTUAL NEVADA DATA: the total # of votes in round 1 will also include all the early voters, so we'll simply have to deal with this as we get the actual data
@@ -46,8 +47,9 @@ ds <- ds %>%
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
-  filter(precinct_delegates != total_del_after_rounding) %>% 
   ungroup()
+
+ds
 
 ds %>% # start here
   arrange(precinct_full, desc(caucus_formula_result)) %>%
@@ -76,22 +78,50 @@ ds %>%
 
 
 # 2) number of delegates after rounding is HIGHER than number of precinct delegates: need to calculate how far the formula result is from after_rounding + 1. Then figure out which candidate is FARTHEST from after_rounding + 1:
-  # a) if there is a decimal tie, then a game of chance occurs. We should just flag these scenarios and check to see that out of the tied candidates, only 1 of them has exactly 1 delegate taken away
+
+ # a) if the number of delegates given is 2 or more HIGHER than the number of precinct delegates, there is actually no defined way to do this. we should flag these cases
+ds <- ds %>% 
+  mutate(two_more_dels = case_when(
+    total_del_after_rounding > precinct_delegates + 1 ~ TRUE,
+    TRUE ~ FALSE
+  )) 
   # b) if this candidate only has 1 delegate, then NO delegates are lost and you actually give out precinct_delegates + 1
   # c) if the farthest candidate has 2 or more delegates, then subtract 1 delegate from this candidate
 
 
-too_many_dels <- ds %>% 
-  filter(total_del_after_rounding > precinct_delegates, viablefinal) %>% 
-  mutate(distance_next = ceiling(caucus_formula_result) - caucus_formula_result) %>% 
-  group_by(precinct_full) %>% 
-  mutate(farthest_rank = rank(desc(distance_next), ties.method = "min")) %>% 
-  ungroup() %>% 
-  arrange(precinct_full, farthest_rank)
+# need cases where total delegates after rounding exceeds the number of precinct delegates by 1 (since there is no direction on what to do if it's 2 or more), the candidate is viable in the final alignment, and the candidate has more than 1 delegate (since you cannot have your only delegate taken away)
 
-too_many_dels %>% 
+# there are conflicting statements on how to do the "distance" to the next integer. It typically says "furthest from rounding up to the next whole number", but elsewhere refers to "away from the next whole number after rounding". Here we go with the first interpretation
+
+ds <- ds %>% 
+  mutate(distance_next = case_when(
+    !two_more_dels & total_del_after_rounding > precinct_delegates & viablefinal ~ ceiling(caucus_formula_result) - caucus_formula_result,
+    TRUE ~ NA_real_
+    )) %>% 
+  group_by(precinct_full) %>% 
+  mutate(farthest_rank = case_when(
+    !two_more_dels & total_del_after_rounding > precinct_delegates & viablefinal ~ rank(desc(distance_next), ties.method = "min"),
+    TRUE ~ NA_integer_
+    )) %>% 
+  ungroup()
+
+ds %>% 
+  filter(!is.na(distance_next) & !is.na(farthest_rank)) %>% 
+  select(precinct_full, candidate, distance_next, farthest_rank) %>% 
+  group_by(precinct_full) %>% 
+  mutate()
+
+# now need to figure out if there's a tie for first
+ds %>%
+  group_by(precinct_full) %>% 
+  mutate()
+  mutate(tied = case_when(
+    sum()
+  ))
+  
+ds <- ds %>% 
   mutate(final_del = case_when(
-    farthest_rank == 1 & after_rounding > 1 ~ after_rounding - 1,
+    farthest_rank == 1 ~ after_rounding - 1,
     TRUE ~ after_rounding
   )) %>% 
   group_by(precinct_full) %>% 
