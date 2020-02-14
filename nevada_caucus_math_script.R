@@ -76,7 +76,7 @@ too_many_dels <- ds %>%
   mutate(distance_next = ceiling(caucus_formula_result) - caucus_formula_result) %>% 
   group_by(precinct_full) %>% 
   mutate(farthest_rank = rank(desc(distance_next))) %>% # Changed to average ranking
-  mutate(game_of_chance = ifelse(farthest_rank %% 1 != 0, TRUE, FALSE)) %>% # follow me on this
+  mutate(game_of_chance = ifelse(farthest_rank %% 1 != 0 & sum(viablefinal) %% delegates_remaining != 0, TRUE, FALSE))  %>% # Follow me on this. If rank with average tie method isn't equally divisible, then that's a tie, and it only matters if the number of remaining delegates can't be equally divided among viable candidates
   ungroup() %>% 
   arrange(precinct_full, farthest_rank)
 
@@ -102,7 +102,7 @@ not_enough_dels <- ds %>%
   group_by(precinct_full) %>%
   mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
          closest_rank = rank(desc(formula_decimal))) %>%
-  mutate(game_of_chance = ifelse(closest_rank %% 1 != 0, TRUE, FALSE)) %>%
+  mutate(game_of_chance = ifelse(closest_rank %% 1 != 0 & sum(viablefinal) %% delegates_remaining != 0, TRUE, FALSE)) %>%
   arrange(closest_rank) %>%
   group_by(precinct_full, candidate) %>%
   mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining & !game_of_chance, after_rounding + 1, after_rounding)) %>%
