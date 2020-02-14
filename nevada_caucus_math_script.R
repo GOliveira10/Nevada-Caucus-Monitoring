@@ -75,13 +75,14 @@ too_many_dels <- ds %>%
   filter(total_del_after_rounding > precinct_delegates, viablefinal) %>% 
   mutate(distance_next = ceiling(caucus_formula_result) - caucus_formula_result) %>% 
   group_by(precinct_full) %>% 
-  mutate(farthest_rank = rank(desc(distance_next), ties.method = "min")) %>% 
+  mutate(farthest_rank = rank(desc(distance_next))) %>% # Changed to average ranking
+  mutate(game_of_chance = ifelse(farthest_rank %% 1 != 0, TRUE, FALSE)) %>% # follow me on this
   ungroup() %>% 
   arrange(precinct_full, farthest_rank)
 
 too_many_dels <- too_many_dels %>% 
   mutate(final_del = case_when(
-    farthest_rank == 1 & after_rounding > 1 ~ after_rounding - 1,
+    farthest_rank == 1 & after_rounding > 1 & !game_of_chance ~ after_rounding - 1, # Don't allocate if game of chance is required
     TRUE ~ after_rounding
   )) %>% 
   group_by(precinct_full) %>% 
@@ -100,13 +101,15 @@ not_enough_dels <- ds %>%
   filter(total_del_after_rounding < precinct_delegates, viablefinal) %>%
   group_by(precinct_full) %>%
   mutate(delegates_remaining = precinct_delegates - total_del_after_rounding,
-         closest_rank = rank(desc(formula_decimal))) %>% 
+         closest_rank = rank(desc(formula_decimal))) %>%
+  mutate(game_of_chance = ifelse(closest_rank %% 1 != 0, TRUE, FALSE)) %>%
   arrange(closest_rank) %>%
   group_by(precinct_full, candidate) %>%
-  mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining, after_rounding + 1, after_rounding)) %>%
+  mutate(final_del = ifelse(closest_rank %in% 1:delegates_remaining & !game_of_chance, after_rounding + 1, after_rounding)) %>%
   group_by(precinct_full) %>%
   mutate(total_final_del = sum(final_del)) %>% 
-  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, closest_rank, delegates_remaining, final_del, total_final_del)  %>% arrange(precinct_full) 
+  select(candidate, caucus_formula_result, after_rounding, precinct_delegates, total_del_after_rounding, formula_decimal, closest_rank, delegates_remaining, final_del, total_final_del)  %>% 
+  arrange(precinct_full) 
 #  filter(precinct_delegates != total_final_del) ## 0 rows, seems like it works
 
 
@@ -122,11 +125,4 @@ identical(viable_after_filtering, viable_original_set) # This should be true I t
 
 #### Games of Chance ####
 
-ds %>% 
-  arrange(precinct_full, desc(caucus_formula_result)) %>%
-  mutate(candidate_rank_before_rounding = rank(caucus_formula_result),
-         unallocated_delegates = first(precinct_delegates) - first(total_del_after_rounding)) %>%
-  group_by(precinct_full, candidate) %>%
-  mutate(game_of_chance = ifelse((candidate_rank_before_rounding %% 1 != 0 && unallocated_delegates != 0), TRUE, FALSE)) %>%
-  group_by(precinct_full) %>%
-  mutate(precinct_game_of_chance = max(game_of_chance)) ## To operate only on cases without game of chance
+# Need a function here that updates games of chance as we get results
