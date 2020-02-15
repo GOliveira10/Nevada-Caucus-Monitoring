@@ -120,7 +120,7 @@ too_few_process <- function(data){
 }
 
 # this is kinda stupid, you could probably do a while loop, but honestly just running the "too many" and "too few" processes a bunch of times in a row essentially does the trick. Instead of updating some while loop a bunch of times, we're just saying "ok I doubt there are cases where there are like 
-ds2 %>% 
+ds %>% 
   too_many_process() %>% 
   too_many_process() %>% 
   too_many_process() %>% 
