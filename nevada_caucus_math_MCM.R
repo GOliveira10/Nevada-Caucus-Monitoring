@@ -139,3 +139,7 @@ ds2 %>%
 
 ds %>% 
   filter(precinct == "38")
+
+
+## let's add in a thing where we have a google sheet where we can put comments for each precinct (like explanations for what happened in a given precinct), and then we read that in here and then left_join it to our data before we write the full output csv
+
