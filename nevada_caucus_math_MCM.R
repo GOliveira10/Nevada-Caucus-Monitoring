@@ -120,26 +120,43 @@ too_few_process <- function(data){
 }
 
 # this is kinda stupid, you could probably do a while loop, but honestly just running the "too many" and "too few" processes a bunch of times in a row essentially does the trick. Instead of updating some while loop a bunch of times, we're just saying "ok I doubt there are cases where there are like 
-ds %>% 
-  too_many_process() %>% 
-  too_many_process() %>% 
-  too_many_process() %>% 
-  too_many_process() %>% 
-  too_few_process() %>% 
-  too_few_process() %>% 
-  too_few_process() %>% 
-  too_few_process() %>% 
-  too_few_process() %>% 
-  filter(total_final_del != precinct_delegates) %>% 
-  select(precinct, candidate, after_rounding, final_del, 
-         precinct_delegates, total_final_del, game_of_chance) %>% 
-  print(n = Inf)
+# ds %>% 
+#   too_many_process() %>% 
+#   too_many_process() %>% 
+#   too_many_process() %>% 
+#   too_many_process() %>% 
+#   too_few_process() %>% 
+#   too_few_process() %>% 
+#   too_few_process() %>% 
+#   too_few_process() %>% 
+#   too_few_process() %>% 
+#   filter(total_final_del != precinct_delegates) %>% 
+#   select(precinct, candidate, after_rounding, final_del, 
+#          precinct_delegates, total_final_del, game_of_chance) %>% 
+#   print(n = Inf)
 
 # there's actually a case where 0 delegates were given....
 
 ds %>% 
   filter(precinct == "38")
 
+
+
+ds <- ds %>% rank_distances() %>% find_first_last_ties()
+
+while (length(ds$row_id[ds$total_final_del != ds$precinct_delegates & 
+                        ds$game_of_chance == "no_tie" & 
+                        ds$total_final_del > 0]) > 0) {
+  ds <- ds %>% 
+    too_many_process() %>% 
+    too_few_process()
+}
+
+ds %>% 
+  filter(total_final_del != precinct_delegates) %>% 
+    select(precinct, candidate, after_rounding, final_del,
+           precinct_delegates, total_final_del, game_of_chance) %>%
+    print(n = Inf)
 
 ## let's add in a thing where we have a google sheet where we can put comments for each precinct (like explanations for what happened in a given precinct), and then we read that in here and then left_join it to our data before we write the full output csv
 
