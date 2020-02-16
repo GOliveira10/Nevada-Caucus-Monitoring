@@ -56,7 +56,6 @@ results_full <- first_alignment_results %>%
   left_join(final_alignment_results, by = c("precinct", "candidate", "is_complete")) %>%
   mutate(change_from_first = votes_final - votes_first)
 
-
 viability <- results_full %>% filter(is_complete == "TRUE") %>%
   select(precinct, candidate, candidate_not_viable_first) %>%
   mutate(candidate = paste0(candidate, "_not_viable_after_first")) %>%
