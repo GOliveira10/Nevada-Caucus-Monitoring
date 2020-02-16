@@ -1,7 +1,14 @@
 library(tidyverse)
+library(googlesheets4)
 
-ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv") %>% 
-  rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id))
+
+test_run <- TRUE
+
+ds <- read_csv("nevada_data/test/nevada_caucus_data_input_test.csv")  %>% 
+  rename(county = County) %>% mutate(precinct = as.character(precinct))
+#   rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id))
+
+
 # IN THE ACTUAL NEVADA DATA: the total # of votes in round 1 will also include all the early voters, so we'll simply have to deal with this as we get the actual data.
 
 ## other to-do: figure out how to handle uncommitted votes. do we just filter them out of the final alignment positions?
@@ -160,4 +167,18 @@ ds %>%
     print(n = Inf)
 
 ## let's add in a thing where we have a google sheet where we can put comments for each precinct (like explanations for what happened in a given precinct), and then we read that in here and then left_join it to our data before we write the full output csv
+## https://docs.google.com/spreadsheets/d/1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk/edit?usp=sharing
+
+
+comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
+  read_sheet()
+
+
+file_dir <- ifelse(test_run, "./nevada_data/test/", "./nevada_data/prod/")
+
+ds %>% 
+  left_join(comment_sheet, by = c("county", "precinct_full")) %>%
+  write_csv(paste0(file_dir, "nevada_caucus_data-", 
+                   strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv"))
+
 

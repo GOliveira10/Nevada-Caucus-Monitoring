@@ -1,0 +1,281 @@
+row_id,County,precinct,precinct_full,precinct_delegates,candidate,align1,alignfinal
+1,Carson City,SU,101,6,delaneyj,0,0
+2,Carson City,SU,101,6,bennetm,0,0
+3,Carson City,SU,101,6,bidenj,19,21
+4,Carson City,SU,101,6,bloombergm,0,0
+5,Carson City,SU,101,6,buttigiegp,15,18
+6,Carson City,SU,101,6,gabbardt,0,0
+7,Carson City,SU,101,6,klobuchara,8,0
+8,Carson City,SU,101,6,other,0,0
+9,Carson City,SU,101,6,patrickd,0,0
+10,Carson City,SU,101,6,sandersb,13,13
+11,Carson City,SU,101,6,steyert,0,0
+12,Carson City,SU,101,6,uncommitted,1,0
+13,Carson City,SU,101,6,warrene,8,14
+14,Carson City,SU,101,6,yanga,2,0
+15,Carson City,CL22,103,12,delaneyj,0,0
+16,Carson City,CL22,103,12,bennetm,0,0
+17,Carson City,CL22,103,12,bidenj,40,47
+18,Carson City,CL22,103,12,bloombergm,0,0
+19,Carson City,CL22,103,12,buttigiegp,36,48
+20,Carson City,CL22,103,12,gabbardt,0,0
+21,Carson City,CL22,103,12,klobuchara,13,0
+22,Carson City,CL22,103,12,other,0,0
+23,Carson City,CL22,103,12,patrickd,0,0
+24,Carson City,CL22,103,12,sandersb,38,41
+25,Carson City,CL22,103,12,steyert,9,0
+26,Carson City,CL22,103,12,uncommitted,1,0
+27,Carson City,CL22,103,12,warrene,21,32
+28,Carson City,CL22,103,12,yanga,14,0
+29,Carson City,5,105,2,delaneyj,0,0
+30,Carson City,5,105,2,bennetm,0,0
+31,Carson City,5,105,2,bidenj,5,0
+32,Carson City,5,105,2,bloombergm,0,0
+33,Carson City,5,105,2,buttigiegp,0,0
+34,Carson City,5,105,2,gabbardt,0,0
+35,Carson City,5,105,2,klobuchara,7,11
+36,Carson City,5,105,2,other,0,0
+37,Carson City,5,105,2,patrickd,0,0
+38,Carson City,5,105,2,sandersb,0,0
+39,Carson City,5,105,2,steyert,7,8
+40,Carson City,5,105,2,uncommitted,2,0
+41,Carson City,5,105,2,warrene,0,0
+42,Carson City,5,105,2,yanga,0,0
+43,Carson City,D62,107,6,delaneyj,0,0
+44,Carson City,D62,107,6,bennetm,0,0
+45,Carson City,D62,107,6,bidenj,39,42
+46,Carson City,D62,107,6,bloombergm,0,0
+47,Carson City,D62,107,6,buttigiegp,52,60
+48,Carson City,D62,107,6,gabbardt,0,0
+49,Carson City,D62,107,6,klobuchara,49,53
+50,Carson City,D62,107,6,other,0,0
+51,Carson City,D62,107,6,patrickd,0,0
+52,Carson City,D62,107,6,sandersb,16,15
+53,Carson City,D62,107,6,steyert,0,0
+54,Carson City,D62,107,6,uncommitted,0,0
+55,Carson City,D62,107,6,warrene,37,37
+56,Carson City,D62,107,6,yanga,16,0
+57,Carson City,38,109,1,delaneyj,0,0
+58,Carson City,38,109,1,bennetm,0,0
+59,Carson City,38,109,1,bidenj,0,0
+60,Carson City,38,109,1,bloombergm,0,0
+61,Carson City,38,109,1,buttigiegp,0,0
+62,Carson City,38,109,1,gabbardt,0,0
+63,Carson City,38,109,1,klobuchara,2,0
+64,Carson City,38,109,1,other,0,0
+65,Carson City,38,109,1,patrickd,0,0
+66,Carson City,38,109,1,sandersb,0,0
+67,Carson City,38,109,1,steyert,0,0
+68,Carson City,38,109,1,uncommitted,0,0
+69,Carson City,38,109,1,warrene,1,0
+70,Carson City,38,109,1,yanga,1,1
+71,Carson City,WK4,111,5,delaneyj,0,0
+72,Carson City,WK4,111,5,bennetm,2,0
+73,Carson City,WK4,111,5,bidenj,32,39
+74,Carson City,WK4,111,5,bloombergm,0,0
+75,Carson City,WK4,111,5,buttigiegp,64,80
+76,Carson City,WK4,111,5,gabbardt,0,0
+77,Carson City,WK4,111,5,klobuchara,40,48
+78,Carson City,WK4,111,5,other,0,0
+79,Carson City,WK4,111,5,patrickd,0,0
+80,Carson City,WK4,111,5,sandersb,28,0
+81,Carson City,WK4,111,5,steyert,6,0
+82,Carson City,WK4,111,5,uncommitted,0,0
+83,Carson City,WK4,111,5,warrene,33,57
+84,Carson City,WK4,111,5,yanga,29,0
+85,Carson City,UN,113,2,delaneyj,0,0
+86,Carson City,UN,113,2,bennetm,0,0
+87,Carson City,UN,113,2,bidenj,16,20
+88,Carson City,UN,113,2,bloombergm,0,0
+89,Carson City,UN,113,2,buttigiegp,21,30
+90,Carson City,UN,113,2,gabbardt,0,0
+91,Carson City,UN,113,2,klobuchara,11,0
+92,Carson City,UN,113,2,other,0,2
+93,Carson City,UN,113,2,patrickd,0,0
+94,Carson City,UN,113,2,sandersb,11,0
+95,Carson City,UN,113,2,steyert,4,0
+96,Carson City,UN,113,2,uncommitted,1,2
+97,Carson City,UN,113,2,warrene,26,40
+98,Carson City,UN,113,2,yanga,4,0
+99,Carson City,3,201,12,delaneyj,0,0
+100,Carson City,3,201,12,bennetm,0,0
+101,Carson City,3,201,12,bidenj,14,18
+102,Carson City,3,201,12,bloombergm,0,0
+103,Carson City,3,201,12,buttigiegp,14,18
+104,Carson City,3,201,12,gabbardt,0,0
+105,Carson City,3,201,12,klobuchara,15,22
+106,Carson City,3,201,12,other,0,0
+107,Carson City,3,201,12,patrickd,0,0
+108,Carson City,3,201,12,sandersb,5,1
+109,Carson City,3,201,12,steyert,0,0
+110,Carson City,3,201,12,uncommitted,2,0
+111,Carson City,3,201,12,warrene,4,0
+112,Carson City,3,201,12,yanga,5,0
+113,Carson City,IC.23,203,12,delaneyj,0,0
+114,Carson City,IC.23,203,12,bennetm,1,0
+115,Carson City,IC.23,203,12,bidenj,73,0
+116,Carson City,IC.23,203,12,bloombergm,1,0
+117,Carson City,IC.23,203,12,buttigiegp,115,147
+118,Carson City,IC.23,203,12,gabbardt,2,0
+119,Carson City,IC.23,203,12,klobuchara,90,80
+120,Carson City,IC.23,203,12,other,0,0
+121,Carson City,IC.23,203,12,patrickd,0,0
+122,Carson City,IC.23,203,12,sandersb,172,192
+123,Carson City,IC.23,203,12,steyert,21,0
+124,Carson City,IC.23,203,12,uncommitted,4,83
+125,Carson City,IC.23,203,12,warrene,251,299
+126,Carson City,IC.23,203,12,yanga,24,0
+127,Carson City,AR,205,5,delaneyj,0,0
+128,Carson City,AR,205,5,bennetm,0,0
+129,Carson City,AR,205,5,bidenj,20,22
+130,Carson City,AR,205,5,bloombergm,0,0
+131,Carson City,AR,205,5,buttigiegp,8,10
+132,Carson City,AR,205,5,gabbardt,0,0
+133,Carson City,AR,205,5,klobuchara,3,0
+134,Carson City,AR,205,5,other,0,0
+135,Carson City,AR,205,5,patrickd,0,0
+136,Carson City,AR,205,5,sandersb,6,6
+137,Carson City,AR,205,5,steyert,0,0
+138,Carson City,AR,205,5,uncommitted,0,0
+139,Carson City,AR,205,5,warrene,1,0
+140,Carson City,AR,205,5,yanga,0,0
+141,Carson City,KE4,207,6,delaneyj,0,0
+142,Carson City,KE4,207,6,bennetm,0,0
+143,Carson City,KE4,207,6,bidenj,4,0
+144,Carson City,KE4,207,6,bloombergm,0,0
+145,Carson City,KE4,207,6,buttigiegp,14,21
+146,Carson City,KE4,207,6,gabbardt,2,0
+147,Carson City,KE4,207,6,klobuchara,0,0
+148,Carson City,KE4,207,6,other,0,0
+149,Carson City,KE4,207,6,patrickd,0,0
+150,Carson City,KE4,207,6,sandersb,10,10
+151,Carson City,KE4,207,6,steyert,1,0
+152,Carson City,KE4,207,6,uncommitted,0,0
+153,Carson City,KE4,207,6,warrene,2,0
+154,Carson City,KE4,207,6,yanga,0,0
+155,Carson City,SD1,209,6,delaneyj,0,0
+156,Carson City,SD1,209,6,bennetm,0,0
+157,Carson City,SD1,209,6,bidenj,2,3
+158,Carson City,SD1,209,6,bloombergm,0,0
+159,Carson City,SD1,209,6,buttigiegp,10,10
+160,Carson City,SD1,209,6,gabbardt,0,0
+161,Carson City,SD1,209,6,klobuchara,2,2
+162,Carson City,SD1,209,6,other,0,0
+163,Carson City,SD1,209,6,patrickd,0,0
+164,Carson City,SD1,209,6,sandersb,22,24
+165,Carson City,SD1,209,6,steyert,2,0
+166,Carson City,SD1,209,6,uncommitted,0,0
+167,Carson City,SD1,209,6,warrene,3,2
+168,Carson City,SD1,209,6,yanga,2,2
+169,Carson City,ANK 05,211,10,delaneyj,0,0
+170,Carson City,ANK 05,211,10,bennetm,1,0
+171,Carson City,ANK 05,211,10,bidenj,39,39
+172,Carson City,ANK 05,211,10,bloombergm,0,0
+173,Carson City,ANK 05,211,10,buttigiegp,61,68
+174,Carson City,ANK 05,211,10,gabbardt,1,0
+175,Carson City,ANK 05,211,10,klobuchara,38,39
+176,Carson City,ANK 05,211,10,other,0,0
+177,Carson City,ANK 05,211,10,patrickd,0,0
+178,Carson City,ANK 05,211,10,sandersb,62,67
+179,Carson City,ANK 05,211,10,steyert,8,0
+180,Carson City,ANK 05,211,10,uncommitted,2,0
+181,Carson City,ANK 05,211,10,warrene,43,43
+182,Carson City,ANK 05,211,10,yanga,5,0
+183,Carson City,CR27,301,5,delaneyj,0,0
+184,Carson City,CR27,301,5,bennetm,0,0
+185,Carson City,CR27,301,5,bidenj,26,37
+186,Carson City,CR27,301,5,bloombergm,0,0
+187,Carson City,CR27,301,5,buttigiegp,18,0
+188,Carson City,CR27,301,5,gabbardt,1,0
+189,Carson City,CR27,301,5,klobuchara,10,0
+190,Carson City,CR27,301,5,other,0,0
+191,Carson City,CR27,301,5,patrickd,0,0
+192,Carson City,CR27,301,5,sandersb,62,65
+193,Carson City,CR27,301,5,steyert,6,0
+194,Carson City,CR27,301,5,uncommitted,0,0
+195,Carson City,CR27,301,5,warrene,34,40
+196,Carson City,CR27,301,5,yanga,5,0
+197,Carson City,CR19,303,7,delaneyj,0,0
+198,Carson City,CR19,303,7,bennetm,0,0
+199,Carson City,CR19,303,7,bidenj,38,43
+200,Carson City,CR19,303,7,bloombergm,0,0
+201,Carson City,CR19,303,7,buttigiegp,47,62
+202,Carson City,CR19,303,7,gabbardt,0,0
+203,Carson City,CR19,303,7,klobuchara,27,0
+204,Carson City,CR19,303,7,other,0,0
+205,Carson City,CR19,303,7,patrickd,0,0
+206,Carson City,CR19,303,7,sandersb,60,65
+207,Carson City,CR19,303,7,steyert,6,0
+208,Carson City,CR19,303,7,uncommitted,0,0
+209,Carson City,CR19,303,7,warrene,50,59
+210,Carson City,CR19,303,7,yanga,6,0
+211,Carson City,DM 018,305,5,delaneyj,0,0
+212,Carson City,DM 018,305,5,bennetm,0,0
+213,Carson City,DM 018,305,5,bidenj,15,15
+214,Carson City,DM 018,305,5,bloombergm,0,0
+215,Carson City,DM 018,305,5,buttigiegp,2,0
+216,Carson City,DM 018,305,5,gabbardt,0,0
+217,Carson City,DM 018,305,5,klobuchara,15,20
+218,Carson City,DM 018,305,5,other,0,0
+219,Carson City,DM 018,305,5,patrickd,0,0
+220,Carson City,DM 018,305,5,sandersb,37,37
+221,Carson City,DM 018,305,5,steyert,6,0
+222,Carson City,DM 018,305,5,uncommitted,0,0
+223,Carson City,DM 018,305,5,warrene,20,22
+224,Carson City,DM 018,305,5,yanga,0,0
+225,Carson City,ANK 02,307,10,delaneyj,0,0
+226,Carson City,ANK 02,307,10,bennetm,0,0
+227,Carson City,ANK 02,307,10,bidenj,57,63
+228,Carson City,ANK 02,307,10,bloombergm,0,0
+229,Carson City,ANK 02,307,10,buttigiegp,128,156
+230,Carson City,ANK 02,307,10,gabbardt,0,0
+231,Carson City,ANK 02,307,10,klobuchara,40,0
+232,Carson City,ANK 02,307,10,other,0,0
+233,Carson City,ANK 02,307,10,patrickd,0,0
+234,Carson City,ANK 02,307,10,sandersb,49,52
+235,Carson City,ANK 02,307,10,steyert,0,0
+236,Carson City,ANK 02,307,10,uncommitted,0,0
+237,Carson City,ANK 02,307,10,warrene,60,62
+238,Carson City,ANK 02,307,10,yanga,1,0
+239,Carson City,D44,309,5,delaneyj,0,0
+240,Carson City,D44,309,5,bennetm,0,0
+241,Carson City,D44,309,5,bidenj,14,0
+242,Carson City,D44,309,5,bloombergm,0,0
+243,Carson City,D44,309,5,buttigiegp,20,22
+244,Carson City,D44,309,5,gabbardt,0,0
+245,Carson City,D44,309,5,klobuchara,1,0
+246,Carson City,D44,309,5,other,0,4
+247,Carson City,D44,309,5,patrickd,0,0
+248,Carson City,D44,309,5,sandersb,49,49
+249,Carson City,D44,309,5,steyert,0,0
+250,Carson City,D44,309,5,uncommitted,0,0
+251,Carson City,D44,309,5,warrene,23,28
+252,Carson City,D44,309,5,yanga,17,21
+253,Carson City,BG,401,4,delaneyj,0,0
+254,Carson City,BG,401,4,bennetm,0,0
+255,Carson City,BG,401,4,bidenj,18,18
+256,Carson City,BG,401,4,bloombergm,0,0
+257,Carson City,BG,401,4,buttigiegp,18,18
+258,Carson City,BG,401,4,gabbardt,0,0
+259,Carson City,BG,401,4,klobuchara,0,0
+260,Carson City,BG,401,4,other,0,0
+261,Carson City,BG,401,4,patrickd,0,0
+262,Carson City,BG,401,4,sandersb,40,40
+263,Carson City,BG,401,4,steyert,0,0
+264,Carson City,BG,401,4,uncommitted,0,0
+265,Carson City,BG,401,4,warrene,18,18
+266,Carson City,BG,401,4,yanga,0,0
+267,Carson City,D43,403,5,delaneyj,0,0
+268,Carson City,D43,403,5,bennetm,0,0
+269,Carson City,D43,403,5,bidenj,29,34
+270,Carson City,D43,403,5,bloombergm,1,0
+271,Carson City,D43,403,5,buttigiegp,40,42
+272,Carson City,D43,403,5,gabbardt,0,0
+273,Carson City,D43,403,5,klobuchara,2,0
+274,Carson City,D43,403,5,other,0,0
+275,Carson City,D43,403,5,patrickd,0,0
+276,Carson City,D43,403,5,sandersb,53,58
+277,Carson City,D43,403,5,steyert,0,0
+278,Carson City,D43,403,5,uncommitted,5,0
+279,Carson City,D43,403,5,warrene,38,44
+280,Carson City,D43,403,5,yanga,10,0

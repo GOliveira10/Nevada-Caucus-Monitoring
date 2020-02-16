@@ -1,0 +1,281 @@
+row_id,county,precinct,precinct_full,precinct_delegates,candidate,align1,alignfinal,total_align1,total_alignfinal,viability_threshold,viable1,viablefinal,caucus_formula_result,after_rounding,total_del_after_rounding,final_del,total_final_del,distance_next,farthest_rank,closest_rank,min_far_rank,is_farthest,min_close_rank,is_closest,how_many_farthest,how_many_closest,game_of_chance,comments
+1,Carson City,SU,101,6,delaneyj,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+2,Carson City,SU,101,6,bennetm,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+3,Carson City,SU,101,6,bidenj,19,21,66,66,10,TRUE,TRUE,1.9091,2,6,2,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+4,Carson City,SU,101,6,bloombergm,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+5,Carson City,SU,101,6,buttigiegp,15,18,66,66,10,TRUE,TRUE,1.6364,2,6,2,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+6,Carson City,SU,101,6,gabbardt,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+7,Carson City,SU,101,6,klobuchara,8,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+8,Carson City,SU,101,6,other,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+9,Carson City,SU,101,6,patrickd,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+10,Carson City,SU,101,6,sandersb,13,13,66,66,10,TRUE,TRUE,1.1818,1,6,1,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+11,Carson City,SU,101,6,steyert,0,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+12,Carson City,SU,101,6,uncommitted,1,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+13,Carson City,SU,101,6,warrene,8,14,66,66,10,FALSE,TRUE,1.2727,1,6,1,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+14,Carson City,SU,101,6,yanga,2,0,66,66,10,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+15,Carson City,CL22,103,12,delaneyj,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+16,Carson City,CL22,103,12,bennetm,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+17,Carson City,CL22,103,12,bidenj,40,47,172,168,26,TRUE,TRUE,3.2791,3,11,3,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+18,Carson City,CL22,103,12,bloombergm,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+19,Carson City,CL22,103,12,buttigiegp,36,48,172,168,26,TRUE,TRUE,3.3488,3,11,4,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+20,Carson City,CL22,103,12,gabbardt,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+21,Carson City,CL22,103,12,klobuchara,13,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+22,Carson City,CL22,103,12,other,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+23,Carson City,CL22,103,12,patrickd,0,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+24,Carson City,CL22,103,12,sandersb,38,41,172,168,26,TRUE,TRUE,2.8605,3,11,3,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+25,Carson City,CL22,103,12,steyert,9,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+26,Carson City,CL22,103,12,uncommitted,1,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+27,Carson City,CL22,103,12,warrene,21,32,172,168,26,FALSE,TRUE,2.2326,2,11,2,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+28,Carson City,CL22,103,12,yanga,14,0,172,168,26,FALSE,FALSE,0,0,11,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+29,Carson City,5,105,2,delaneyj,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+30,Carson City,5,105,2,bennetm,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+31,Carson City,5,105,2,bidenj,5,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+32,Carson City,5,105,2,bloombergm,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+33,Carson City,5,105,2,buttigiegp,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+34,Carson City,5,105,2,gabbardt,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+35,Carson City,5,105,2,klobuchara,7,11,21,19,6,TRUE,TRUE,1.0476,1,2,1,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+36,Carson City,5,105,2,other,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+37,Carson City,5,105,2,patrickd,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+38,Carson City,5,105,2,sandersb,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+39,Carson City,5,105,2,steyert,7,8,21,19,6,TRUE,TRUE,0.7619,1,2,1,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+40,Carson City,5,105,2,uncommitted,2,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+41,Carson City,5,105,2,warrene,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+42,Carson City,5,105,2,yanga,0,0,21,19,6,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+43,Carson City,D62,107,6,delaneyj,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+44,Carson City,D62,107,6,bennetm,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+45,Carson City,D62,107,6,bidenj,39,42,209,207,32,TRUE,TRUE,1.2057,1,6,1,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+46,Carson City,D62,107,6,bloombergm,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+47,Carson City,D62,107,6,buttigiegp,52,60,209,207,32,TRUE,TRUE,1.7225,2,6,2,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+48,Carson City,D62,107,6,gabbardt,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+49,Carson City,D62,107,6,klobuchara,49,53,209,207,32,TRUE,TRUE,1.5215,2,6,2,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+50,Carson City,D62,107,6,other,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+51,Carson City,D62,107,6,patrickd,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+52,Carson City,D62,107,6,sandersb,16,15,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+53,Carson City,D62,107,6,steyert,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+54,Carson City,D62,107,6,uncommitted,0,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+55,Carson City,D62,107,6,warrene,37,37,209,207,32,TRUE,TRUE,1.0622,1,6,1,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+56,Carson City,D62,107,6,yanga,16,0,209,207,32,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+57,Carson City,38,109,1,delaneyj,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+58,Carson City,38,109,1,bennetm,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+59,Carson City,38,109,1,bidenj,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+60,Carson City,38,109,1,bloombergm,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+61,Carson City,38,109,1,buttigiegp,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+62,Carson City,38,109,1,gabbardt,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+63,Carson City,38,109,1,klobuchara,2,0,4,1,2,TRUE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+64,Carson City,38,109,1,other,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+65,Carson City,38,109,1,patrickd,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+66,Carson City,38,109,1,sandersb,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+67,Carson City,38,109,1,steyert,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+68,Carson City,38,109,1,uncommitted,0,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+69,Carson City,38,109,1,warrene,1,0,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+70,Carson City,38,109,1,yanga,1,1,4,1,2,FALSE,FALSE,0,0,0,0,0,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+71,Carson City,WK4,111,5,delaneyj,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+72,Carson City,WK4,111,5,bennetm,2,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+73,Carson City,WK4,111,5,bidenj,32,39,234,224,36,FALSE,TRUE,0.8333,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+74,Carson City,WK4,111,5,bloombergm,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+75,Carson City,WK4,111,5,buttigiegp,64,80,234,224,36,TRUE,TRUE,1.7094,2,5,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+76,Carson City,WK4,111,5,gabbardt,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+77,Carson City,WK4,111,5,klobuchara,40,48,234,224,36,TRUE,TRUE,1.0256,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+78,Carson City,WK4,111,5,other,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+79,Carson City,WK4,111,5,patrickd,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+80,Carson City,WK4,111,5,sandersb,28,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+81,Carson City,WK4,111,5,steyert,6,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+82,Carson City,WK4,111,5,uncommitted,0,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+83,Carson City,WK4,111,5,warrene,33,57,234,224,36,FALSE,TRUE,1.2179,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+84,Carson City,WK4,111,5,yanga,29,0,234,224,36,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+85,Carson City,UN,113,2,delaneyj,0,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+86,Carson City,UN,113,2,bennetm,0,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+87,Carson City,UN,113,2,bidenj,16,20,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+88,Carson City,UN,113,2,bloombergm,0,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+89,Carson City,UN,113,2,buttigiegp,21,30,94,94,24,FALSE,TRUE,0.6383,1,2,1,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+90,Carson City,UN,113,2,gabbardt,0,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+91,Carson City,UN,113,2,klobuchara,11,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+92,Carson City,UN,113,2,other,0,2,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+93,Carson City,UN,113,2,patrickd,0,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+94,Carson City,UN,113,2,sandersb,11,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+95,Carson City,UN,113,2,steyert,4,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+96,Carson City,UN,113,2,uncommitted,1,2,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+97,Carson City,UN,113,2,warrene,26,40,94,94,24,TRUE,TRUE,0.8511,1,2,1,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+98,Carson City,UN,113,2,yanga,4,0,94,94,24,FALSE,FALSE,0,0,2,0,2,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+99,Carson City,3,201,12,delaneyj,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+100,Carson City,3,201,12,bennetm,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+101,Carson City,3,201,12,bidenj,14,18,59,59,9,TRUE,TRUE,3.661,4,12,4,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+102,Carson City,3,201,12,bloombergm,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+103,Carson City,3,201,12,buttigiegp,14,18,59,59,9,TRUE,TRUE,3.661,4,12,4,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+104,Carson City,3,201,12,gabbardt,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+105,Carson City,3,201,12,klobuchara,15,22,59,59,9,TRUE,TRUE,4.4746,4,12,4,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+106,Carson City,3,201,12,other,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+107,Carson City,3,201,12,patrickd,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+108,Carson City,3,201,12,sandersb,5,1,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+109,Carson City,3,201,12,steyert,0,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+110,Carson City,3,201,12,uncommitted,2,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+111,Carson City,3,201,12,warrene,4,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+112,Carson City,3,201,12,yanga,5,0,59,59,9,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+113,Carson City,IC.23,203,12,delaneyj,0,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+114,Carson City,IC.23,203,12,bennetm,1,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+115,Carson City,IC.23,203,12,bidenj,73,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+116,Carson City,IC.23,203,12,bloombergm,1,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+117,Carson City,IC.23,203,12,buttigiegp,115,147,754,801,114,TRUE,TRUE,2.3395,2,10,3,12,1.6604999999999999,1,3,1,TRUE,1,FALSE,1,1,no_tie,NA
+118,Carson City,IC.23,203,12,gabbardt,2,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+119,Carson City,IC.23,203,12,klobuchara,90,80,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+120,Carson City,IC.23,203,12,other,0,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+121,Carson City,IC.23,203,12,patrickd,0,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+122,Carson City,IC.23,203,12,sandersb,172,192,754,801,114,TRUE,TRUE,3.0557,3,10,4,12,0.9443000000000001,3,1,1,FALSE,1,TRUE,1,1,no_tie,NA
+123,Carson City,IC.23,203,12,steyert,21,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+124,Carson City,IC.23,203,12,uncommitted,4,83,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+125,Carson City,IC.23,203,12,warrene,251,299,754,801,114,TRUE,TRUE,4.7586,5,10,5,12,1.2413999999999996,2,2,1,FALSE,1,FALSE,1,1,no_tie,NA
+126,Carson City,IC.23,203,12,yanga,24,0,754,801,114,FALSE,FALSE,0,0,10,0,12,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+127,Carson City,AR,205,5,delaneyj,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+128,Carson City,AR,205,5,bennetm,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+129,Carson City,AR,205,5,bidenj,20,22,38,38,6,TRUE,TRUE,2.8947,3,5,3,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+130,Carson City,AR,205,5,bloombergm,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+131,Carson City,AR,205,5,buttigiegp,8,10,38,38,6,TRUE,TRUE,1.3158,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+132,Carson City,AR,205,5,gabbardt,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+133,Carson City,AR,205,5,klobuchara,3,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+134,Carson City,AR,205,5,other,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+135,Carson City,AR,205,5,patrickd,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+136,Carson City,AR,205,5,sandersb,6,6,38,38,6,TRUE,TRUE,0.7895,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+137,Carson City,AR,205,5,steyert,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+138,Carson City,AR,205,5,uncommitted,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+139,Carson City,AR,205,5,warrene,1,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+140,Carson City,AR,205,5,yanga,0,0,38,38,6,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+141,Carson City,KE4,207,6,delaneyj,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+142,Carson City,KE4,207,6,bennetm,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+143,Carson City,KE4,207,6,bidenj,4,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+144,Carson City,KE4,207,6,bloombergm,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+145,Carson City,KE4,207,6,buttigiegp,14,21,33,31,5,TRUE,TRUE,3.8182,4,6,4,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+146,Carson City,KE4,207,6,gabbardt,2,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+147,Carson City,KE4,207,6,klobuchara,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+148,Carson City,KE4,207,6,other,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+149,Carson City,KE4,207,6,patrickd,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+150,Carson City,KE4,207,6,sandersb,10,10,33,31,5,TRUE,TRUE,1.8182,2,6,2,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+151,Carson City,KE4,207,6,steyert,1,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+152,Carson City,KE4,207,6,uncommitted,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+153,Carson City,KE4,207,6,warrene,2,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+154,Carson City,KE4,207,6,yanga,0,0,33,31,5,FALSE,FALSE,0,0,6,0,6,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+155,Carson City,SD1,209,6,delaneyj,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+156,Carson City,SD1,209,6,bennetm,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+157,Carson City,SD1,209,6,bidenj,2,3,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+158,Carson City,SD1,209,6,bloombergm,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+159,Carson City,SD1,209,6,buttigiegp,10,10,43,43,7,TRUE,TRUE,1.3953,1,4,2,6,1.6047,1,2,1,TRUE,1,FALSE,1,1,no_tie,NA
+160,Carson City,SD1,209,6,gabbardt,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+161,Carson City,SD1,209,6,klobuchara,2,2,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+162,Carson City,SD1,209,6,other,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+163,Carson City,SD1,209,6,patrickd,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+164,Carson City,SD1,209,6,sandersb,22,24,43,43,7,TRUE,TRUE,3.3488,3,4,4,6,0.6511999999999998,2,1,1,FALSE,1,TRUE,1,1,no_tie,NA
+165,Carson City,SD1,209,6,steyert,2,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+166,Carson City,SD1,209,6,uncommitted,0,0,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+167,Carson City,SD1,209,6,warrene,3,2,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+168,Carson City,SD1,209,6,yanga,2,2,43,43,7,FALSE,FALSE,0,0,4,0,6,NA,NA,NA,1,NA,1,NA,1,1,no_tie,NA
+169,Carson City,ANK 05,211,10,delaneyj,0,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+170,Carson City,ANK 05,211,10,bennetm,1,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+171,Carson City,ANK 05,211,10,bidenj,39,39,260,256,39,TRUE,TRUE,1.5,2,12,2,12,1.5,1,4,1,TRUE,1,FALSE,2,1,too_many_del_tie,NA
+172,Carson City,ANK 05,211,10,bloombergm,0,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+173,Carson City,ANK 05,211,10,buttigiegp,61,68,260,256,39,TRUE,TRUE,2.6154,3,12,3,12,1.3845999999999998,4,2,1,FALSE,1,FALSE,2,1,too_many_del_tie,NA
+174,Carson City,ANK 05,211,10,gabbardt,1,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+175,Carson City,ANK 05,211,10,klobuchara,38,39,260,256,39,FALSE,TRUE,1.5,2,12,2,12,1.5,1,4,1,TRUE,1,FALSE,2,1,too_many_del_tie,NA
+176,Carson City,ANK 05,211,10,other,0,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+177,Carson City,ANK 05,211,10,patrickd,0,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+178,Carson City,ANK 05,211,10,sandersb,62,67,260,256,39,TRUE,TRUE,2.5769,3,12,3,12,1.4230999999999998,3,3,1,FALSE,1,FALSE,2,1,too_many_del_tie,NA
+179,Carson City,ANK 05,211,10,steyert,8,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+180,Carson City,ANK 05,211,10,uncommitted,2,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+181,Carson City,ANK 05,211,10,warrene,43,43,260,256,39,TRUE,TRUE,1.6538,2,12,2,12,1.3462,5,1,1,FALSE,1,TRUE,2,1,too_many_del_tie,NA
+182,Carson City,ANK 05,211,10,yanga,5,0,260,256,39,FALSE,FALSE,0,0,12,0,12,NA,NA,NA,1,NA,1,NA,2,1,too_many_del_tie,NA
+183,Carson City,CR27,301,5,delaneyj,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+184,Carson City,CR27,301,5,bennetm,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+185,Carson City,CR27,301,5,bidenj,26,37,162,142,25,TRUE,TRUE,1.142,1,4,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+186,Carson City,CR27,301,5,bloombergm,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+187,Carson City,CR27,301,5,buttigiegp,18,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+188,Carson City,CR27,301,5,gabbardt,1,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+189,Carson City,CR27,301,5,klobuchara,10,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+190,Carson City,CR27,301,5,other,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+191,Carson City,CR27,301,5,patrickd,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+192,Carson City,CR27,301,5,sandersb,62,65,162,142,25,TRUE,TRUE,2.0062,2,4,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+193,Carson City,CR27,301,5,steyert,6,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+194,Carson City,CR27,301,5,uncommitted,0,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+195,Carson City,CR27,301,5,warrene,34,40,162,142,25,TRUE,TRUE,1.2346,1,4,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+196,Carson City,CR27,301,5,yanga,5,0,162,142,25,FALSE,FALSE,0,0,4,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+197,Carson City,CR19,303,7,delaneyj,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+198,Carson City,CR19,303,7,bennetm,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+199,Carson City,CR19,303,7,bidenj,38,43,234,229,36,TRUE,TRUE,1.2863,1,7,1,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+200,Carson City,CR19,303,7,bloombergm,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+201,Carson City,CR19,303,7,buttigiegp,47,62,234,229,36,TRUE,TRUE,1.8547,2,7,2,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+202,Carson City,CR19,303,7,gabbardt,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+203,Carson City,CR19,303,7,klobuchara,27,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+204,Carson City,CR19,303,7,other,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+205,Carson City,CR19,303,7,patrickd,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+206,Carson City,CR19,303,7,sandersb,60,65,234,229,36,TRUE,TRUE,1.9444,2,7,2,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+207,Carson City,CR19,303,7,steyert,6,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+208,Carson City,CR19,303,7,uncommitted,0,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+209,Carson City,CR19,303,7,warrene,50,59,234,229,36,TRUE,TRUE,1.765,2,7,2,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+210,Carson City,CR19,303,7,yanga,6,0,234,229,36,FALSE,FALSE,0,0,7,0,7,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+211,Carson City,DM 018,305,5,delaneyj,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+212,Carson City,DM 018,305,5,bennetm,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+213,Carson City,DM 018,305,5,bidenj,15,15,95,94,15,TRUE,TRUE,0.7895,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+214,Carson City,DM 018,305,5,bloombergm,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+215,Carson City,DM 018,305,5,buttigiegp,2,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+216,Carson City,DM 018,305,5,gabbardt,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+217,Carson City,DM 018,305,5,klobuchara,15,20,95,94,15,TRUE,TRUE,1.0526,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+218,Carson City,DM 018,305,5,other,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+219,Carson City,DM 018,305,5,patrickd,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+220,Carson City,DM 018,305,5,sandersb,37,37,95,94,15,TRUE,TRUE,1.9474,2,5,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+221,Carson City,DM 018,305,5,steyert,6,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+222,Carson City,DM 018,305,5,uncommitted,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+223,Carson City,DM 018,305,5,warrene,20,22,95,94,15,TRUE,TRUE,1.1579,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+224,Carson City,DM 018,305,5,yanga,0,0,95,94,15,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+225,Carson City,ANK 02,307,10,delaneyj,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+226,Carson City,ANK 02,307,10,bennetm,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+227,Carson City,ANK 02,307,10,bidenj,57,63,335,333,51,TRUE,TRUE,1.8806,2,11,2,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+228,Carson City,ANK 02,307,10,bloombergm,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+229,Carson City,ANK 02,307,10,buttigiegp,128,156,335,333,51,TRUE,TRUE,4.6567,5,11,5,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+230,Carson City,ANK 02,307,10,gabbardt,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+231,Carson City,ANK 02,307,10,klobuchara,40,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+232,Carson City,ANK 02,307,10,other,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+233,Carson City,ANK 02,307,10,patrickd,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+234,Carson City,ANK 02,307,10,sandersb,49,52,335,333,51,FALSE,TRUE,1.5522,2,11,1,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+235,Carson City,ANK 02,307,10,steyert,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+236,Carson City,ANK 02,307,10,uncommitted,0,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+237,Carson City,ANK 02,307,10,warrene,60,62,335,333,51,TRUE,TRUE,1.8507,2,11,2,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+238,Carson City,ANK 02,307,10,yanga,1,0,335,333,51,FALSE,FALSE,0,0,11,0,10,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+239,Carson City,D44,309,5,delaneyj,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+240,Carson City,D44,309,5,bennetm,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+241,Carson City,D44,309,5,bidenj,14,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+242,Carson City,D44,309,5,bloombergm,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+243,Carson City,D44,309,5,buttigiegp,20,22,124,124,19,TRUE,TRUE,0.8871,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+244,Carson City,D44,309,5,gabbardt,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+245,Carson City,D44,309,5,klobuchara,1,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+246,Carson City,D44,309,5,other,0,4,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+247,Carson City,D44,309,5,patrickd,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+248,Carson City,D44,309,5,sandersb,49,49,124,124,19,TRUE,TRUE,1.9758,2,5,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+249,Carson City,D44,309,5,steyert,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+250,Carson City,D44,309,5,uncommitted,0,0,124,124,19,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+251,Carson City,D44,309,5,warrene,23,28,124,124,19,TRUE,TRUE,1.129,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+252,Carson City,D44,309,5,yanga,17,21,124,124,19,FALSE,TRUE,0.8468,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+253,Carson City,BG,401,4,delaneyj,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+254,Carson City,BG,401,4,bennetm,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+255,Carson City,BG,401,4,bidenj,18,18,94,94,15,TRUE,TRUE,0.766,1,5,1,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+256,Carson City,BG,401,4,bloombergm,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+257,Carson City,BG,401,4,buttigiegp,18,18,94,94,15,TRUE,TRUE,0.766,1,5,1,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+258,Carson City,BG,401,4,gabbardt,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+259,Carson City,BG,401,4,klobuchara,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+260,Carson City,BG,401,4,other,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+261,Carson City,BG,401,4,patrickd,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+262,Carson City,BG,401,4,sandersb,40,40,94,94,15,TRUE,TRUE,1.7021,2,5,1,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+263,Carson City,BG,401,4,steyert,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+264,Carson City,BG,401,4,uncommitted,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+265,Carson City,BG,401,4,warrene,18,18,94,94,15,TRUE,TRUE,0.766,1,5,1,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+266,Carson City,BG,401,4,yanga,0,0,94,94,15,FALSE,FALSE,0,0,5,0,4,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+267,Carson City,D43,403,5,delaneyj,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+268,Carson City,D43,403,5,bennetm,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+269,Carson City,D43,403,5,bidenj,29,34,178,178,27,TRUE,TRUE,0.9551,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+270,Carson City,D43,403,5,bloombergm,1,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+271,Carson City,D43,403,5,buttigiegp,40,42,178,178,27,TRUE,TRUE,1.1798,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+272,Carson City,D43,403,5,gabbardt,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+273,Carson City,D43,403,5,klobuchara,2,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+274,Carson City,D43,403,5,other,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+275,Carson City,D43,403,5,patrickd,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+276,Carson City,D43,403,5,sandersb,53,58,178,178,27,TRUE,TRUE,1.6292,2,5,2,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+277,Carson City,D43,403,5,steyert,0,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+278,Carson City,D43,403,5,uncommitted,5,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+279,Carson City,D43,403,5,warrene,38,44,178,178,27,TRUE,TRUE,1.236,1,5,1,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
+280,Carson City,D43,403,5,yanga,10,0,178,178,27,FALSE,FALSE,0,0,5,0,5,NA,NA,NA,Inf,NA,Inf,NA,0,0,no_tie,NA
