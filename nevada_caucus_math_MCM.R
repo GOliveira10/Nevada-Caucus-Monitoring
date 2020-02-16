@@ -170,15 +170,19 @@ ds %>%
 ## https://docs.google.com/spreadsheets/d/1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk/edit?usp=sharing
 
 
+join_comments_and_push <- function(data){
+
+  ### Will update this a bit when Creed gives us the update endpoint
+  
 comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
   read_sheet()
 
-
 file_dir <- ifelse(test_run, "./nevada_data/test/", "./nevada_data/prod/")
+file_name <- paste0("nevada_caucus_data-", strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv")
 
-ds %>% 
+
+data %>% 
   left_join(comment_sheet, by = c("county", "precinct_full")) %>%
-  write_csv(paste0(file_dir, "nevada_caucus_data-", 
-                   strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv"))
+  write_csv(paste0(file_dir, file_name))
 
-
+}
