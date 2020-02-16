@@ -56,22 +56,29 @@ ds %>%
 
 alpha_shift <- ds %>% 
   group_by(precinct_full) %>%
+  filter(!candidate %in% c("uncommitted", "other")) %>%
   mutate(align1_lag = lag(align1),
          alignfinal_lag = lag(alignfinal),
          align1_lead = lead(align1),
-         alignfinal_lead = lead(alignfinal)) %>% 
-  select(precinct_full, viablefinal, candidate, align1, alignfinal, align1_lag, alignfinal_lag, align1_lead, alignfinal_lead) %>%
+         alignfinal_lead = lead(alignfinal),
+         viable1_lag = lag(viable1),
+         viable1_lead = lead(viable1)) %>% 
+  select(precinct_full, viablefinal, candidate, align1, 
+         alignfinal, align1_lag, viable1_lag,
+         alignfinal_lag, align1_lead, 
+         alignfinal_lead, viable1_lead) %>%
   ungroup() %>% mutate(diff_sd = sd(alignfinal-align1)) %>%
   group_by(precinct_full, candidate) %>%
   mutate(alpha_shift = case_when(
-    alignfinal-align1 > (2*diff_sd) & align1_lag-alignfinal_lag > (2*diff_sd)  ~ "forward", 
-    alignfinal-align1 > (2*diff_sd) & align1_lead-alignfinal_lead > (2*diff_sd) ~ "backward"
+    alignfinal-align1 > (3*diff_sd) & align1_lag-alignfinal_lag > (3*diff_sd) & viable1_lag ~ "forward", 
+    alignfinal-align1 > (3*diff_sd) & align1_lead-alignfinal_lead > (3*diff_sd) & viable1_lead ~ "backward"
   )) %>% 
   group_by(precinct_full) %>% 
-  mutate(has_alpha_shift = case_when(!is.na(alpha_shift) ~ TRUE))
+  mutate(has_alpha_shift = max(case_when(!is.na(alpha_shift) ~ TRUE,
+                                         is.na(alpha_shift) ~ FALSE), na.rm = TRUE))
   
 
-alpha_shift %>% filter(has_alpha_shift) %>% view()
+alpha_shift %>% filter(has_alpha_shift == 1) %>% select(-contains("lag"), -contains("lead")) %>% view()
 
 
 
