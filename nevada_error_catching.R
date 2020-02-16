@@ -5,14 +5,15 @@ ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv") %>%
 
 ds <- ds %>% 
   group_by(precinct_full) %>% 
-  mutate(votes_align1 = sum(align1)) %>% 
+  mutate(votes_align1 = sum(align1),
+         votes_alignfinal = sum(alignfinal)) %>% 
   mutate(viability_threshold = case_when(
-    precinct_delegates >= 4 ~ round(0.15*votes_align1),
-    precinct_delegates == 3 ~ round((1/6)*votes_align1),
-    precinct_delegates == 2 ~ round(0.25*votes_align1),
-    precinct_delegates == 1 ~ round(0.5*votes_align1),
+    precinct_delegates >= 4 ~ ceiling(0.15*votes_align1),
+    precinct_delegates == 3 ~ ceiling((1/6)*votes_align1),
+    precinct_delegates == 2 ~ ceiling(0.25*votes_align1),
+    precinct_delegates == 1 ~ ceiling(0.5*votes_align1),
     TRUE ~ NA_real_
-  ))%>% 
+  )) %>% 
   mutate(viable1 = align1 >= viability_threshold, viablefinal = alignfinal >= viability_threshold) %>% 
   ungroup()
 
@@ -46,3 +47,8 @@ ds %>%
 
 # 3) alphabetical errors where candidate results are entered in wrong
 # Grant I'm gonna let you take this one on
+
+# 4) can't have more votes in the final round than in the 1st round
+
+ds %>% 
+  filter(votes_alignfinal > votes_align1)
