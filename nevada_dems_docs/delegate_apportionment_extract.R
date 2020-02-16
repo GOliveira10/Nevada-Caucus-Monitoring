@@ -2,7 +2,7 @@ library(tidyverse)
 library(pdftools)
 
 
-pdf_file <- "nevada_precinct_apportionment.pdf"
+pdf_file <- "./nevada_dems_docs/nevada_precinct_apportionment.pdf"
 
 data <- pdf_data(pdf_file)
 

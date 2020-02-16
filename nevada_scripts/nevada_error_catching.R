@@ -1,6 +1,7 @@
 library(tidyverse)
 
-ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv") %>% 
+## Switching to the full dataset cause it's not that big and gives us more test data
+ds <- read_csv("iowa_data/cleaned_nyt_results2020-02-06_113324.csv") %>% 
   rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id))
 
 ds <- ds %>% 
@@ -47,6 +48,9 @@ ds %>%
 
 # 3) alphabetical errors where candidate results are entered in wrong
 # Grant I'm gonna let you take this one on
+
+head(ds)
+
 
 # 4) can't have more votes in the final round than in the 1st round
 
