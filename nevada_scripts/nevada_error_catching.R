@@ -68,17 +68,17 @@ alpha_shift <- ds %>%
          alignfinal_lag, align1_lead, 
          alignfinal_lead, viable1_lead) %>%
   ungroup() %>% mutate(diff_sd = sd(alignfinal-align1)) %>%
-  group_by(precinct_full, candidate) %>%
+#  group_by(precinct_full, candidate) %>%
   mutate(alpha_shift = case_when(
-    alignfinal-align1 > (3*diff_sd) & align1_lag-alignfinal_lag > (3*diff_sd) & viable1_lag ~ "forward", 
-    alignfinal-align1 > (3*diff_sd) & align1_lead-alignfinal_lead > (3*diff_sd) & viable1_lead ~ "backward"
+    alignfinal-align1 > (3*diff_sd) & align1_lag-alignfinal_lag > (3*diff_sd) & viable1_lag ~ lag(candidate), 
+    alignfinal-align1 > (3*diff_sd) & align1_lead-alignfinal_lead > (3*diff_sd) & viable1_lead ~ lead(candidate)
   )) %>% 
   group_by(precinct_full) %>% 
   mutate(has_alpha_shift = max(case_when(!is.na(alpha_shift) ~ TRUE,
                                          is.na(alpha_shift) ~ FALSE), na.rm = TRUE))
   
 
-alpha_shift %>% filter(has_alpha_shift == 1) %>% select(-contains("lag"), -contains("lead")) %>% view()
+alpha_shift %>% filter(has_alpha_shift == 1) %>% select(-contains("lag"), -contains("lead"), -diff_sd) %>% view()
 
 
 
