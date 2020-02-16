@@ -13,13 +13,13 @@ ds <- read_csv("iowa_data/iowa_data_subset_for_testing.csv") %>%
 
 ds <- ds %>% 
   group_by(precinct_full) %>% 
-  mutate(votes_align1 = sum(align1),
-         votes_alignfinal = sum(alignfinal)) %>% 
+  mutate(total_align1 = sum(align1),
+         total_alignfinal = sum(alignfinal)) %>% 
   mutate(viability_threshold = case_when(
-    precinct_delegates >= 4 ~ ceiling(0.15*votes_align1),
-    precinct_delegates == 3 ~ ceiling((1/6)*votes_align1),
-    precinct_delegates == 2 ~ ceiling(0.25*votes_align1),
-    precinct_delegates == 1 ~ ceiling(0.5*votes_align1),
+    precinct_delegates >= 4 ~ ceiling(0.15*total_align1),
+    precinct_delegates == 3 ~ ceiling((1/6)*total_align1),
+    precinct_delegates == 2 ~ ceiling(0.25*total_align1),
+    precinct_delegates == 1 ~ ceiling(0.5*total_align1),
     TRUE ~ NA_real_
   )) %>% 
   mutate(viable1 = align1 >= viability_threshold, viablefinal = alignfinal >= viability_threshold) %>% 
@@ -31,7 +31,7 @@ ds <- ds %>%
 # ok I have to double check this but I'm PRETTY sure that the formula results are always rounded to 4 decimals
 ds <- ds %>% 
   mutate(caucus_formula_result = case_when(
-    viablefinal ~ round((alignfinal * precinct_delegates) / votes_align1, digits = 4),
+    viablefinal ~ round((alignfinal * precinct_delegates) / total_align1, digits = 4),
     TRUE ~ 0
   )) %>% 
   mutate(after_rounding = round(caucus_formula_result)) %>% 
