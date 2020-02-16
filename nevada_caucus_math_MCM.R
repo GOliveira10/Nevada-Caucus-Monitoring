@@ -27,12 +27,12 @@ ds <- ds %>%
 
 # with this information we should be able to use all the rules to figure out delegate appointments OTHER THAN the cases where a card draw is needed
 
+# ok I have to double check this but I'm PRETTY sure that the formula results are always rounded to 4 decimals
 ds <- ds %>% 
   mutate(caucus_formula_result = case_when(
-    viablefinal ~ (alignfinal * precinct_delegates) / votes_align1,
+    viablefinal ~ round((alignfinal * precinct_delegates) / votes_align1, digits = 4),
     TRUE ~ 0
   )) %>% 
-  #mutate(formula_decimal = round(caucus_formula_result - floor(caucus_formula_result), 4)) %>% 
   mutate(after_rounding = round(caucus_formula_result)) %>% 
   group_by(precinct_full) %>% 
   mutate(total_del_after_rounding = sum(after_rounding)) %>% 
@@ -144,7 +144,7 @@ ds %>%
 
 ds <- ds %>% rank_distances() %>% find_first_last_ties()
 
-while (length(ds$row_id[ds$total_final_del != ds$precinct_delegates & 
+while(length(ds$row_id[ds$total_final_del != ds$precinct_delegates & 
                         ds$game_of_chance == "no_tie" & 
                         ds$total_final_del > 0]) > 0) {
   ds <- ds %>% 
