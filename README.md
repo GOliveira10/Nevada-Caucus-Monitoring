@@ -1,3 +1,6 @@
+Weird Caucus: The Boys are Back In Town
+---------------------------------------
+
 Following the embarassing failure of democracy that was the 2020 Iowa
 caucuses, @MCMaurer, @SethYefrican and I got to work looking at the
 rules for the Nevada caucuses, and it immediately became abundantly
@@ -23,7 +26,7 @@ questions, comments and suggestions are all appreciated.
 
 Follow us all on Twitter for updates as the caucuses go forward!
 
--   @MCulshawMaurer
--   @SethYefrican
--   @thirdcreed
--   @erikdstock
+-   \[@MCulshawMaurer\](<a href="https://www.twitter.com/MCulshawMaurer" class="uri">https://www.twitter.com/MCulshawMaurer</a>)
+-   \[@SethYefrican\](<a href="https://www.twitter.com/SethYefrican" class="uri">https://www.twitter.com/SethYefrican</a>)
+-   \[@thirdcreed\](<a href="https://www.twitter.com/ThirdCreed" class="uri">https://www.twitter.com/ThirdCreed</a>)
+-   \[@erikdstock\](<a href="https://www.twitter.com/ErikDStock" class="uri">https://www.twitter.com/ErikDStock</a>)

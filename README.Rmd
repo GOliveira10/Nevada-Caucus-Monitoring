@@ -3,6 +3,8 @@ title: "Weird Caucus: Nevada Caucus Monitoring"
 output: md_document
 ---
 
+## Weird Caucus: The Boys are Back In Town
+
 Following the embarassing failure of democracy that was the 2020 Iowa caucuses, @MCMaurer, @SethYefrican and I got to work looking at the rules for the Nevada caucuses, and it immediately became abundantly clear that these too will be a disaster. In summary, the Nevada caucuses will be like the Iowa Caucuses 2: EXTREME MODE, given the rules are basically the same as Iowa with the additional complication of early voting providing new and exciting challenges for duly elected caucus leaders.
 
 Together with our pals @thirdcreed and @erikdstock, we're proud to present you [Weird Caucus](http://www.weirdcauc.us), our stab at providing much needed transparency to the caucus process by automatically scraping and analyzing reported vote totals for likely errors and visualizing them to make them understandable for civilians who haven't burned holes in their brains meditating on these arcane rules as we have. 
@@ -11,7 +13,7 @@ In this repo you'll find the scripts for pulling and analyzing the results using
 
 Follow us all on Twitter for updates as the caucuses go forward!
 
-+ @MCulshawMaurer
-+ @SethYefrican
-+ @thirdcreed
-+ @erikdstock
++ [@MCulshawMaurer](https://www.twitter.com/MCulshawMaurer)
++ [@SethYefrican](https://www.twitter.com/SethYefrican)
++ [@thirdcreed](https://www.twitter.com/ThirdCreed)
++ [@erikdstock](https://www.twitter.com/ErikDStock)
