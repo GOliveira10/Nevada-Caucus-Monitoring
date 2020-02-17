@@ -169,12 +169,14 @@ ds %>%
 ## let's add in a thing where we have a google sheet where we can put comments for each precinct (like explanations for what happened in a given precinct), and then we read that in here and then left_join it to our data before we write the full output csv
 ## https://docs.google.com/spreadsheets/d/1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk/edit?usp=sharing
 
+comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
+  read_sheet()
 
 join_comments_and_push <- function(data){
 
   ### Will update this a bit when Creed gives us the update endpoint
   
-comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
+test_comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
   read_sheet()
 
 file_dir <- ifelse(test_run, "./nevada_data/test/", "./nevada_data/prod/")

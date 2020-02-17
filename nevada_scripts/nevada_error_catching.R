@@ -44,10 +44,22 @@ ds
 ds %>% 
   filter(viable1 & alignfinal < align1)
 
+ds <- ds %>% 
+  mutate(viable_loss = case_when(
+    viable1 & alignfinal < align1 ~ TRUE,
+    TRUE ~ FALSE
+  ))
+
 # 2) cannot be nonviable in round 1 and REMAIN nonviable without votes going to 0. This is because you either combine with another group to BECOME viable, or everyone has to realign. They may, however, realign with uncommitted I think.
 
 ds %>% 
   filter(!viable1 & !viablefinal & alignfinal > 0 & candidate != "uncommitted")
+
+ds <- ds %>% 
+  mutate(nonviable_no_realign = case_when(
+    !viable1 & !viablefinal & alignfinal > 0 & candidate != "uncommitted" ~ TRUE,
+    TRUE ~ FALSE
+  ))
 
 # ok another thing to be clear on: the uncommitted preference CAN receive delegates, BUT it is not subject to the same errors above. well actually I'm not sure. if uncommitted in 1st round is viable, can it become nonviable? It seems like the second error would not apply to uncommitted. Like uncommitted voters in the first round certainly don't have to realign
 
@@ -86,3 +98,17 @@ alpha_shift %>% filter(has_alpha_shift == 1) %>% select(-contains("lag"), -conta
 
 ds %>% 
   filter(total_alignfinal > total_align1)
+
+ds <- ds %>% 
+  mutate(more_final_votes = case_when(
+    total_alignfinal > total_align1 ~ TRUE,
+    TRUE ~ FALSE
+  ))
+
+# 5) it's NOT against the rules for the final vote total to be lower than the 1st round, since people can leave, but it might still be worth flagging this so we could maybe check with on the ground reports and see if it's real
+
+ds <- ds %>% 
+  mutate(fewer_final_votes = case_when(
+    total_alignfinal < total_align1 ~ TRUE,
+    TRUE ~ FALSE
+  ))

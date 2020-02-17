@@ -11,7 +11,7 @@ voting providing new and exciting challenges for duly elected caucus
 leaders.
 
 Together with our pals @thirdcreed and @erikdstock, we’re proud to
-present you [Weird Caucus](http://www.weirdcauc.us), our stab at
+present you [Ugly Caucus](http://www.uglycauc.us), our stab at
 providing much needed transparency to the caucus process by
 automatically scraping and analyzing reported vote totals for likely
 errors and visualizing them to make them understandable for civilians
