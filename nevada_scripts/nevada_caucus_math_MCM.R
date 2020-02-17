@@ -21,7 +21,11 @@ rank_distances <- function(data){
   data %>% 
     group_by(precinct_full) %>% 
     mutate(distance_next = case_when(
-      total_final_del != precinct_delegates & viablefinal ~ final_del+1 - caucus_formula_result,
+      total_final_del != precinct_delegates & 
+        viablefinal &
+        !viable_loss &
+        !more_final_votes &
+        !nonviable_no_realign ~ final_del+1 - caucus_formula_result,
       TRUE ~ NA_real_
     )) %>% 
     mutate(farthest_rank = case_when(
@@ -55,7 +59,13 @@ find_first_last_ties <- function(data){
 remove_too_many_dels <- function(data){
   data %>% 
     mutate(final_del = case_when(
-      total_final_del > precinct_delegates & is_farthest & final_del > 1 & game_of_chance != "too_many_del_tie" ~ final_del - 1,
+      total_final_del > precinct_delegates & 
+        is_farthest & final_del > 1 & 
+        game_of_chance != "too_many_del_tie" ~ final_del - 1,
+      how_many_farthest <= (total_final_del - precinct_delegates) &
+        is_farthest &
+        final_del > 1 &
+        game_of_chance == "too_many_del_tie" ~ final_del - 1,
       TRUE ~ final_del
     )) %>% 
     group_by(precinct_full) %>% 
@@ -66,7 +76,12 @@ remove_too_many_dels <- function(data){
 add_too_few_dels <- function(data){
   data %>% 
     mutate(final_del = case_when(
-      total_final_del < precinct_delegates & is_closest & game_of_chance != "too_few_del_tie" ~ final_del + 1,
+      total_final_del < precinct_delegates & 
+        is_closest & 
+        game_of_chance != "too_few_del_tie" ~ final_del + 1,
+      how_many_closest <= precinct_delegates - total_final_del &
+        is_closest &
+        game_of_chance == "too_few_del_tie" ~ final_del + 1,
       TRUE ~ final_del
     )) %>% 
     group_by(precinct_full) %>% 

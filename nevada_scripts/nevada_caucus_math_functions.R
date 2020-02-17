@@ -49,8 +49,6 @@ find_first_last_ties <- function(data){
     ungroup()
 }
 
-# ok we have a how_many_closest column and how_many_farthest column as well. 
-
 remove_too_many_dels <- function(data){
   data %>% 
     mutate(final_del = case_when(

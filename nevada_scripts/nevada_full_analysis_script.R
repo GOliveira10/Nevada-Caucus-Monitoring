@@ -2,27 +2,28 @@
 
 library(tidyverse)
 library(googlesheets4)
+# contains functions that will scrape, clean, and write the data to a timestamped CSV
 source("nevada_scripts/nevada_scrape_clean.R")
+# contains functions to flag any errors we've thought to identify
 source("nevada_scripts/nevada_error_catching.R")
+# contains functions to carry out the caucus math calculations
 source("nevada_scripts/nevada_caucus_math_functions.R")
 
-# run the script from "nevada_scripts/nevada_scrape_clean.R" to scrape, clean, and write cleaned data to timestamped CSV
+#### run the script from "nevada_scripts/nevada_scrape_clean.R" to scrape, clean, and write cleaned data to timestamped CSV ####
 scrape_clean_write()
 
-# read in the latest cleaned timestamped CSV
+#### read in the latest cleaned timestamped CSV ####
 
 file_info <- file.info(list.files("nevada_data/cleaned_timestamped", full.names = TRUE))
 latest_file <- rownames(file_info)[which.max(file_info$mtime)]
 
 d <- read_csv(latest_file)
 
-# run the dataframe through the error testing and caucus math functions
+#### run the dataframe through the error testing and caucus math functions ####
 
 d <- d %>% 
   find_all_errors() %>% 
   do_caucus_math()
-
-# append the Google Sheets comments
 
 ## NOTE: since we're adding a tie_winner and tie_loser column to the google sheet, we should also do one last thing before pushing:
 
@@ -38,6 +39,18 @@ d <- d %>%
 
 # and the same thing for too_few_del_tie
 
+#### Try to compare THEIR delegate count to OUR delegate count ####
+
+# so we want to flag the delegate counts as different only if there is no tie OR there is a tie BUT we have marked the outcome of the game of chance. So basically if we have a game of chance we don't know the outcome of, it will almost certainly show up as a difference between the reported delegate count and ours. however, if we KNOW the winner/loser and update the final_del to reflect that but it STILL doesn't match the reported delegates, that should be flagged too
+d <- d %>% 
+  mutate(del_counts_diff = case_when(
+    final_del != reported_del &
+      (game_of_chance == "no_tie" | (!is.na(tie_winner) | !is.na(tie_loser))) ~ TRUE,
+    TRUE ~ FALSE
+  ))
+
+
+#### append the Google Sheets comments ####
 d %>% join_comments_and_push()
 
 
