@@ -9,11 +9,11 @@ ds <- read_csv("nevada_data/test/nevada_caucus_data_input_test.csv")  %>%
 ds
 
 ds <- read_csv("./iowa_data/cleaned_nyt_results2020-02-06_113324.csv") %>%
-  select(-weird) %>% distinct() %>%
   select(county = County, precinct, precinct_full, precinct_delegates, candidate, round, result) %>%
   group_by(precinct_full, candidate) %>%
   pivot_wider(names_from = round, values_from = result) %>%
-  rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id))
+  rownames_to_column(var = "row_id") %>% mutate(row_id = as.numeric(row_id)) %>% 
+  ungroup()
 
 ds
 
@@ -140,6 +140,27 @@ ds <- ds %>%
   find_all_errors() %>% 
   do_caucus_math()
 
+ds %>% 
+  filter(precinct_delegates != total_final_del, game_of_chance == "no_tie") %>% 
+  filter(!viable_loss,
+         !more_final_votes,
+         !nonviable_no_realign,
+         final_del > 1)
+
+ds %>% 
+  filter(precinct_delegates != total_final_del, game_of_chance == "too_many_del_tie") %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_farthest, game_of_chance, how_many_farthest) %>% 
+  filter(how_many_farthest < total_final_del - precinct_delegates)
+
+ds %>% 
+  filter(precinct_delegates != total_final_del, game_of_chance == "too_few_del_tie") %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_closest, game_of_chance, how_many_closest) %>% 
+  filter(how_many_closest < precinct_delegates - total_final_del)
+
+ds %>% 
+  filter(game_of_chance == "too_many_del_tie", total_final_del - precinct_delegates > 1) %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_farthest, game_of_chance, how_many_farthest)
+
 # so there are no cases where total_final_del is not equal to precinct_del
 ds %>%
   filter(total_final_del != precinct_delegates,
@@ -201,6 +222,35 @@ ds <- ds %>%
          total_final_del = sum(final_del)) %>% 
   ungroup()
 
+
+
+ds %>% 
+  find_all_errors() %>% 
+  rank_distances() %>% 
+  find_first_last_ties() %>% 
+  filter(game_of_chance == "too_many_del_tie", total_final_del - precinct_delegates > 1) %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_farthest, game_of_chance, how_many_farthest)
+
+ds %>% 
+  find_all_errors() %>% 
+  rank_distances() %>% 
+  find_first_last_ties() %>% 
+  filter(game_of_chance == "too_many_del_tie", total_final_del - precinct_delegates > 1) %>% 
+  remove_too_many_dels() %>% 
+  rank_distances() %>% 
+  find_first_last_ties() %>% 
+  filter(game_of_chance == "too_many_del_tie", total_final_del - precinct_delegates > 1) %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_farthest, game_of_chance, how_many_farthest) %>% 
+  print(n = Inf)
+
+
+
+test <- ds %>% find_all_errors() %>% do_caucus_math() %>% 
+  filter(game_of_chance == "too_many_del_tie", total_final_del - precinct_delegates > 1)
+
+test %>% 
+  select(precinct_full, candidate, final_del, total_final_del, precinct_delegates, is_farthest, game_of_chance, how_many_farthest) %>% 
+  print(n = Inf)
 
 # actually using two different ranking methods since it's just way easier. For "farthest" rank you just don't ever include candidates with 1 delegate, but for the "closest" rank you do
 

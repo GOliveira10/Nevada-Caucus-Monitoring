@@ -2,11 +2,23 @@
 
 library(tidyverse)
 
+# the general order of events here is like this:
+# 1) in cases where the delegates given do not add up to the delegates for the precinct, rank the candidates based off of their distance to rounding up to the next whole number after rounding
+# 2) now go through these rankings and find ties for closest to rounding up and farthest from rounding up. if there is a tie, mark it
+# 3) if there is no tie, take away or add delegates to the winning/losing candidates in the rankings
+# 4) repeat the process, so if there are still too many/few delegates given, find those cases and re-rank the candidates. a candidate who won/lost last time should now be ranked differently because they're closer/farther than before. then repeat the finding of ties, etc.
+
+# the only issue is that a tie at any stage is marked the same. So let's say there are 2 extra candidates given. there could be a tie for the 1st one to be taken away, which would be marked "
+
 rank_distances <- function(data){
   data %>% 
     group_by(precinct_full) %>% 
     mutate(distance_next = case_when(
-      total_final_del != precinct_delegates & viablefinal ~ final_del+1 - caucus_formula_result,
+      total_final_del != precinct_delegates & 
+        viablefinal &
+        !viable_loss &
+        !more_final_votes &
+        !nonviable_no_realign ~ final_del+1 - caucus_formula_result,
       TRUE ~ NA_real_
     )) %>% 
     mutate(farthest_rank = case_when(
@@ -37,10 +49,18 @@ find_first_last_ties <- function(data){
     ungroup()
 }
 
+# ok we have a how_many_closest column and how_many_farthest column as well. 
+
 remove_too_many_dels <- function(data){
   data %>% 
     mutate(final_del = case_when(
-      total_final_del > precinct_delegates & is_farthest & final_del > 1 & game_of_chance != "too_many_del_tie" ~ final_del - 1,
+      total_final_del > precinct_delegates & 
+        is_farthest & final_del > 1 & 
+        game_of_chance != "too_many_del_tie" ~ final_del - 1,
+      how_many_farthest <= (total_final_del - precinct_delegates) &
+        is_farthest &
+        final_del > 1 &
+        game_of_chance == "too_many_del_tie" ~ final_del - 1,
       TRUE ~ final_del
     )) %>% 
     group_by(precinct_full) %>% 
@@ -51,7 +71,12 @@ remove_too_many_dels <- function(data){
 add_too_few_dels <- function(data){
   data %>% 
     mutate(final_del = case_when(
-      total_final_del < precinct_delegates & is_closest & game_of_chance != "too_few_del_tie" ~ final_del + 1,
+      total_final_del < precinct_delegates & 
+        is_closest & 
+        game_of_chance != "too_few_del_tie" ~ final_del + 1,
+      how_many_closest <= precinct_delegates - total_final_del &
+        is_closest &
+        game_of_chance == "too_few_del_tie" ~ final_del + 1,
       TRUE ~ final_del
     )) %>% 
     group_by(precinct_full) %>% 
