@@ -24,6 +24,20 @@ d <- d %>%
 
 # append the Google Sheets comments
 
+## NOTE: since we're adding a tie_winner and tie_loser column to the google sheet, we should also do one last thing before pushing:
+
+# if a given precinct has too_many_del_tie AND the google sheets tie_loser column has a name in it, we should do:
+
+# d %>% 
+#   mutate(final_del = case_when(
+#     candidate == tie_loser & 
+#       game_of_chance == "too_many_del_tie" & 
+#       final_del > 1 ~ final_del - 1,
+#     TRUE ~ final_del
+#   ))
+
+# and the same thing for too_few_del_tie
+
 d %>% join_comments_and_push()
 
 
