@@ -8,24 +8,22 @@ source("nevada_scripts/nevada_scrape_clean.R")
 source("nevada_scripts/nevada_error_catching.R")
 source("nevada_scripts/nevada_caucus_math_functions.R")
 
-# run the script from "nevada_scripts/nevada_scrape_clean.R" to scrape, clean, and write cleaned data to timestamped CSV
+#### run the script from "nevada_scripts/nevada_scrape_clean.R" to scrape, clean, and write cleaned data to timestamped CSV ####
 scrape_clean_write()
 
-# read in the latest cleaned timestamped CSV
+#### read in the latest cleaned timestamped CSV ####
 
 file_info <- file.info(list.files("nevada_data/cleaned_timestamped", full.names = TRUE))
 latest_file <- rownames(file_info)[which.max(file_info$mtime)]
 
 d <- read_csv(latest_file)
 
-# run the dataframe through the error testing and caucus math functions
+#### run the dataframe through the error testing and caucus math functions ####
 
 d <- d %>% 
   find_all_errors() %>% 
   do_caucus_math() %>% 
   join_comments()
-
-# append the Google Sheets comments
 
 ## NOTE: since we're adding a tie_winner and tie_loser column to the google sheet, we should also do one last thing before pushing:
 
@@ -41,7 +39,26 @@ d <- d %>%
 
 # and the same thing for too_few_del_tie
 
+
 d %>% push()
+=======
+#### Try to compare THEIR delegate count to OUR delegate count ####
+
+# so we want to flag the delegate counts as different only if there is no tie OR there is a tie BUT we have marked the outcome of the game of chance. So basically if we have a game of chance we don't know the outcome of, it will almost certainly show up as a difference between the reported delegate count and ours. however, if we KNOW the winner/loser and update the final_del to reflect that but it STILL doesn't match the reported delegates, that should be flagged too
+d <- d %>% 
+  mutate(del_counts_diff = case_when(
+    final_del != reported_del &
+      (game_of_chance == "no_tie" | (!is.na(tie_winner) | !is.na(tie_loser))) ~ TRUE,
+    TRUE ~ FALSE
+  ))
+
+
+#### append the Google Sheets comments ####
+
+# first we need to only select the columns we are planning on reporting to the site
+ds %>% 
+  select(county, precinct, candidate, precinct_delegates, align1, alignfinal, final_del, reported_del, game_of_chance, viable_loss, nonviable_no_realign, alpha_shift, has_alpha_shift, more_final_votes, fewer_final_votes, del_counts_diff, extra_del_given)
+
 
 
 #### testing all the functions together ####
@@ -90,3 +107,16 @@ ds %>%
 ds %>% filter(game_of_chance != "no_tie") %>% 
   select(precinct_full, candidate, after_rounding, final_del, 
          game_of_chance, total_final_del, precinct_delegates)
+
+
+### probable column names and descriptions ####
+columns <- c("county", "precinct", "candidate", "precinct_delegates", "align1", "alignfinal", "final_del", "reported_del", "game_of_chance", "tie_winner", "tie_loser", "viable_loss", "nonviable_no_realign", "alpha_shift", "has_alpha_shift", "more_final_votes", "fewer_final_votes", "del_counts_diff", "extra_del_given")
+
+descriptions <- c("", "", "", "# of delegates to be given by precinct", "# of votes for candidate in 1st alignment", "# of votes for candidate in final alignment", "our calculated # of delegates earned", "the reported # of delegates earned", "string: type of game of chance required", "string: winner of an extra delegate in a tie", "string: loser of an extra delegate in a tie", "logical: if a candidate was viable in 1st round and lost votes going to final round", "logical: if a nonviable candidate from 1st round did not realign in final round", "string: name of candidate that had alphabetical shift", "logical: alphabetical shift in vote reporting detected", "logical: more votes in final alignment than 1st alignment", "logical: fewer votes in final alignment than 1st. warning, not error", "logical: our delegate counts differ from those reported", "logical: too many delegates given out but all candidates had 1 delegate, so an extra delegate was given")
+
+d <- tibble(colnames = columns, description = descriptions)
+d
+
+d %>% 
+  pivot_wider(names_from = colnames, values_from = description)
+d
