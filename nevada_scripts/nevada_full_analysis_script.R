@@ -51,6 +51,12 @@ d <- d %>%
 
 
 #### append the Google Sheets comments ####
+
+# first we need to only select the columns we are planning on reporting to the site
+ds %>% 
+  select(county, precinct, candidate, precinct_delegates, align1, alignfinal, final_del, reported_del, game_of_chance, viable_loss, nonviable_no_realign, alpha_shift, has_alpha_shift, more_final_votes, fewer_final_votes, del_counts_diff, extra_del_given)
+
+
 d %>% join_comments_and_push()
 
 
@@ -100,3 +106,16 @@ ds %>%
 ds %>% filter(game_of_chance != "no_tie") %>% 
   select(precinct_full, candidate, after_rounding, final_del, 
          game_of_chance, total_final_del, precinct_delegates)
+
+
+### probable column names and descriptions ####
+columns <- c("county", "precinct", "candidate", "precinct_delegates", "align1", "alignfinal", "final_del", "reported_del", "game_of_chance", "viable_loss", "nonviable_no_realign", "alpha_shift", "has_alpha_shift", "more_final_votes", "fewer_final_votes", "del_counts_diff", "extra_del_given")
+
+descriptions <- c("", "", "", "number of delegates to be given by precinct", "# of votes for candidate in 1st alignment", "# of votes for candidate in final alignment", "our calculated # of delegates earned", "the reported # of delegates earned", "string describing type of game of chance required", "logical: if a candidate was viable in 1st round and lost votes going to final round", "logical: if a nonviable candidate from 1st round did not realign in final round", "string: name of candidate that had alphabetical shift", "logical: alphabetical shift in vote reporting detected", "logical: more votes in final alignment than 1st alignment", "logical: fewer votes in final alignment than 1st. warning, not error", "logical: our delegate counts differ from those reported", "logical: too many delegates given out but all candidates had 1 delegate, so an extra delegate was given")
+
+d <- tibble(colnames = columns, description = descriptions)
+d
+
+d %>% 
+  pivot_wider(names_from = colnames, values_from = description)
+d
