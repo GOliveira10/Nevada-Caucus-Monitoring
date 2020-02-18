@@ -2,11 +2,8 @@
 
 library(tidyverse)
 library(googlesheets4)
-# contains functions that will scrape, clean, and write the data to a timestamped CSV
 source("nevada_scripts/nevada_scrape_clean.R")
-# contains functions to flag any errors we've thought to identify
 source("nevada_scripts/nevada_error_catching.R")
-# contains functions to carry out the caucus math calculations
 source("nevada_scripts/nevada_caucus_math_functions.R")
 
 #### run the script from "nevada_scripts/nevada_scrape_clean.R" to scrape, clean, and write cleaned data to timestamped CSV ####
