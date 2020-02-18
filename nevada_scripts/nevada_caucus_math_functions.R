@@ -146,25 +146,30 @@ do_caucus_math <- function(data){
   return(data)
 }
 
-join_comments_and_push <- function(data){
-
-  test_run <- TRUE
-  
+join_comments<- function(data){
   
   comment_sheet <- key_get("nv_caucus_comment_sheet")  %>% 
     read_sheet()
+  
+
+  data <- data %>% 
+    left_join(comment_sheet, by = c("precinct_full"))
+ 
+  return(data)
+  
+}  
+  
+
+push <- function(data, test_run = TRUE){
   
   file_dir <- ifelse(test_run, "./nevada_data/test/", "./nevada_data/prod/")
   file_name <- paste0("nevada_caucus_data-", strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv")
   
   
-  data <- data %>% 
-    left_join(comment_sheet, by = c("county", "precinct_full"))
-  
   data %>%
     write_csv(paste0(file_dir, file_name))
   
-  put_object(file = paste0(file_dir, file_name), object = data, bucket = key_get("nv_caucus_data_bucket"))
+  put_object(file = paste0(file_dir, file_name), object = file_name, bucket = key_get("nv_caucus_data_bucket"))
   
 
 }

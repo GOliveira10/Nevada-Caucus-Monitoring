@@ -2,6 +2,8 @@
 
 library(tidyverse)
 library(googlesheets4)
+library(keyring)
+library(aws.s3)
 source("nevada_scripts/nevada_scrape_clean.R")
 source("nevada_scripts/nevada_error_catching.R")
 source("nevada_scripts/nevada_caucus_math_functions.R")
@@ -20,7 +22,8 @@ d <- read_csv(latest_file)
 
 d <- d %>% 
   find_all_errors() %>% 
-  do_caucus_math()
+  do_caucus_math() %>% 
+  join_comments()
 
 # append the Google Sheets comments
 
@@ -28,17 +31,17 @@ d <- d %>%
 
 # if a given precinct has too_many_del_tie AND the google sheets tie_loser column has a name in it, we should do:
 
-# d %>% 
-#   mutate(final_del = case_when(
-#     candidate == tie_loser & 
-#       game_of_chance == "too_many_del_tie" & 
-#       final_del > 1 ~ final_del - 1,
-#     TRUE ~ final_del
-#   ))
+d <- d %>%
+  mutate(final_del = case_when(
+    candidate == tie_loser &
+      game_of_chance == "too_many_del_tie" &
+      final_del > 1 ~ final_del - 1,
+    TRUE ~ final_del
+  ))
 
 # and the same thing for too_few_del_tie
 
-d %>% join_comments_and_push()
+d %>% push()
 
 
 #### testing all the functions together ####
