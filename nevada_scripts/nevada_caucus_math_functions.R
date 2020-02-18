@@ -1,7 +1,7 @@
 # here are all the caucus math functions
 
 library(tidyverse)
-
+library(aws.s3)
 # the general order of events here is like this:
 # 1) in cases where the delegates given do not add up to the delegates for the precinct, rank the candidates based off of their distance to rounding up to the next whole number after rounding
 # 2) now go through these rankings and find ties for closest to rounding up and farthest from rounding up. if there is a tie, mark it
@@ -144,19 +144,30 @@ do_caucus_math <- function(data){
   return(data)
 }
 
-join_comments_and_push <- function(data){
+join_comments<- function(data){
   
-  ### Will update this a bit when Creed gives us the update endpoint
-  
-  test_comment_sheet <- '1ZHW-A8ScqzJyiGl9C3LF5WCj9rck6mgZqcVQYK1HqLk' %>% 
+  comment_sheet <- key_get("nv_caucus_comment_sheet")  %>% 
     read_sheet()
+  
+
+  data <- data %>% 
+    left_join(comment_sheet, by = c("precinct_full"))
+ 
+  return(data)
+  
+}  
+  
+
+push <- function(data, test_run = TRUE){
   
   file_dir <- ifelse(test_run, "./nevada_data/test/", "./nevada_data/prod/")
   file_name <- paste0("nevada_caucus_data-", strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv")
   
   
-  data %>% 
-    left_join(comment_sheet, by = c("county", "precinct_full")) %>%
+  data %>%
     write_csv(paste0(file_dir, file_name))
   
+  put_object(file = paste0(file_dir, file_name), object = file_name, bucket = key_get("nv_caucus_data_bucket"))
+  
+
 }

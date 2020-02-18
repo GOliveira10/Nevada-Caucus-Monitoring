@@ -2,6 +2,8 @@
 
 library(tidyverse)
 library(googlesheets4)
+library(keyring)
+library(aws.s3)
 source("nevada_scripts/nevada_scrape_clean.R")
 source("nevada_scripts/nevada_error_catching.R")
 source("nevada_scripts/nevada_caucus_math_functions.R")
@@ -20,22 +22,26 @@ d <- read_csv(latest_file)
 
 d <- d %>% 
   find_all_errors() %>% 
-  do_caucus_math()
+  do_caucus_math() %>% 
+  join_comments()
 
 ## NOTE: since we're adding a tie_winner and tie_loser column to the google sheet, we should also do one last thing before pushing:
 
 # if a given precinct has too_many_del_tie AND the google sheets tie_loser column has a name in it, we should do:
 
-# d %>% 
-#   mutate(final_del = case_when(
-#     candidate == tie_loser & 
-#       game_of_chance == "too_many_del_tie" & 
-#       final_del > 1 ~ final_del - 1,
-#     TRUE ~ final_del
-#   ))
+d <- d %>%
+  mutate(final_del = case_when(
+    candidate == tie_loser &
+      game_of_chance == "too_many_del_tie" &
+      final_del > 1 ~ final_del - 1,
+    TRUE ~ final_del
+  ))
 
 # and the same thing for too_few_del_tie
 
+
+d %>% push()
+=======
 #### Try to compare THEIR delegate count to OUR delegate count ####
 
 # so we want to flag the delegate counts as different only if there is no tie OR there is a tie BUT we have marked the outcome of the game of chance. So basically if we have a game of chance we don't know the outcome of, it will almost certainly show up as a difference between the reported delegate count and ours. however, if we KNOW the winner/loser and update the final_del to reflect that but it STILL doesn't match the reported delegates, that should be flagged too
@@ -53,8 +59,6 @@ d <- d %>%
 ds %>% 
   select(county, precinct, candidate, precinct_delegates, align1, alignfinal, final_del, reported_del, game_of_chance, viable_loss, nonviable_no_realign, alpha_shift, has_alpha_shift, more_final_votes, fewer_final_votes, del_counts_diff, extra_del_given)
 
-
-d %>% join_comments_and_push()
 
 
 #### testing all the functions together ####
