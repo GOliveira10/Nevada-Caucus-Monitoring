@@ -12,7 +12,7 @@ library(aws.s3)
 
 rank_distances <- function(data){
   data %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(distance_next = case_when(
       total_final_del != precinct_delegates & 
         viablefinal &
@@ -34,7 +34,7 @@ rank_distances <- function(data){
 
 find_first_last_ties <- function(data){
   data %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(min_far_rank = min(farthest_rank, na.rm = T),
            is_farthest = farthest_rank == min_far_rank,
            min_close_rank = min(closest_rank, na.rm = T),
@@ -61,7 +61,7 @@ remove_too_many_dels <- function(data){
         game_of_chance == "too_many_del_tie" ~ final_del - 1,
       TRUE ~ final_del
     )) %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(total_final_del = sum(final_del, na.rm = T)) %>% 
     ungroup()
 }
@@ -104,12 +104,12 @@ do_caucus_math <- function(data){
       TRUE ~ 0
     )) %>% 
     mutate(after_rounding = round(caucus_formula_result)) %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(total_del_after_rounding = sum(after_rounding)) %>% 
     ungroup()
   
   data <- data %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(final_del = after_rounding,
            total_final_del = sum(final_del)) %>% 
     ungroup()
@@ -135,7 +135,7 @@ do_caucus_math <- function(data){
   }
   
   data <- data %>% 
-    group_by(precinct_full) %>% 
+    group_by(precinct_full, GEOID10) %>% 
     mutate(extra_del_given = case_when(
       max(final_del, na.rm = T) == 1 & total_final_del > precinct_delegates ~ TRUE,
       TRUE ~ FALSE
@@ -151,7 +151,7 @@ join_comments<- function(data){
   
 
   data <- data %>% 
-    left_join(comment_sheet, by = c("precinct_full"))
+    left_join(comment_sheet, by = c("precinct_full", "county"))
  
   return(data)
   
