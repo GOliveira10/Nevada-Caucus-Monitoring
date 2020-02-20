@@ -15,6 +15,8 @@ scrape_clean_write()
 
 file_info <- file.info(list.files("nevada_data/cleaned_timestamped", full.names = TRUE))
 latest_file <- rownames(file_info)[which.max(file_info$mtime)]
+latest_file <- "./nevada_data/test/nevada_caucus_data_input_geo.csv"
+
 
 d <- read_csv(latest_file)
 
@@ -41,7 +43,7 @@ d <- d %>%
 
 
 d %>% push()
-=======
+
 #### Try to compare THEIR delegate count to OUR delegate count ####
 
 # so we want to flag the delegate counts as different only if there is no tie OR there is a tie BUT we have marked the outcome of the game of chance. So basically if we have a game of chance we don't know the outcome of, it will almost certainly show up as a difference between the reported delegate count and ours. however, if we KNOW the winner/loser and update the final_del to reflect that but it STILL doesn't match the reported delegates, that should be flagged too
