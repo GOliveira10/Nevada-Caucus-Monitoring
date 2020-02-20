@@ -13,7 +13,7 @@ county_fips %>% mutate(county_fips = `FIPS Code`,
                        state_fips = 32) %>%
   select(-`FIPS Code`) %>% write_csv("./nevada_dems_docs/nevada_fips_codes.csv")
 
-
+county_fips <- read_csv("./nevada_dems_docs/nevada_fips_codes.csv")
 
 
 precincts <- read_csv("./nevada_dems_docs/nevada_delegate_apportionment.csv")
@@ -52,7 +52,7 @@ nevada_data <- iowa_data %>%
   mutate(precinct_full = precinct) %>%
   mutate(county = toupper(county)) %>%
   left_join(county_fips) %>%
-  mutate(GEOID10 = paste0(state_fips, county_fips, precinct))  %>%
+  mutate(GEOID10 = paste0(state_fips, county_fips, precinct))  %>% 
   write_csv("./nevada_data/test/nevada_caucus_data_input_geo.csv")
 
 
