@@ -52,7 +52,10 @@ nevada_data <- iowa_data %>%
   mutate(precinct_full = precinct) %>%
   mutate(county = toupper(county)) %>%
   left_join(county_fips) %>%
-  mutate(GEOID10 = paste0(state_fips, county_fips, precinct))  %>% 
+  mutate(GEOID10 = paste0(state_fips, county_fips, precinct))  
+
+
+nevada_data %>% 
   write_csv("./nevada_data/test/nevada_caucus_data_input_geo.csv")
 
 
