@@ -70,7 +70,7 @@ find_all_errors <- function(data){
 
   data <- data %>% 
     mutate(fewer_final_votes = case_when(
-      total_alignfinal < total_align1 ~ TRUE,
+      total_alignfinal < (total_align1 - 2*sd(total_align1)) ~ TRUE,
       TRUE ~ FALSE
     ))
   
