@@ -10,22 +10,28 @@ check_for_updates <- function(){
   
   file_info <- file.info(list.files("nevada_data/cleaned_timestamped", full.names = TRUE))
   latest_file <- rownames(file_info)[which.max(file_info$mtime)]
-  d <- read_csv(latest_file)
+  
+  
+  d <- suppressMessages(read_csv(latest_file, progress = FALSE))
   
   last_precincts_reporting <- d %>% 
     group_by(GEOID10) %>%
     summarize(votes = sum(votes, na.rm = TRUE)) %>%
     filter(votes > 0) %>% nrow()
   
+  
+  last_total_votes <- sum(d$votes)
+  
   precincts <- GET('https://int.nyt.com/applications/elections/2020/data/api/2020-02-22/precincts/NevadaDemPrecinctsGcs-latest.json') %>%
     content()
   
   precincts_reporting <- precincts$meta$precincts_reporting
+  total_votes <- precincts$meta$total_votes
   
-  return(last_precincts_reporting < precincts_reporting)  
+  
+  return(((last_precincts_reporting < precincts_reporting) | (last_total_votes < total_votes)))   
   
 }
-
 
 
 repeat{
@@ -45,6 +51,9 @@ repeat{
       message("No updates.")
       
     }
+    
+    Sys.sleep(60)
+    
     
   }
   
