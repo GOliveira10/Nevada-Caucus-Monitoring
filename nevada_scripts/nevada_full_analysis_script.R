@@ -15,7 +15,7 @@ scrape_clean_write()
 
 file_info <- file.info(list.files("nevada_data/cleaned_timestamped", full.names = TRUE))
 latest_file <- rownames(file_info)[which.max(file_info$mtime)]
-latest_file <- "./nevada_data/test/nevada_caucus_data_input_geo.csv"
+#latest_file <- "./nevada_data/test/nevada_caucus_data_input_geo.csv"
 
 
 d <- read_csv(latest_file)
@@ -40,6 +40,8 @@ d <- d %>%
   ))
 
 # and the same thing for too_few_del_tie
+
+d$fewer_final_votes <- FALSE
 
 
 d %>% push()
