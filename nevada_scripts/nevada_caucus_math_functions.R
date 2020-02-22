@@ -149,6 +149,8 @@ join_comments<- function(data){
   comment_sheet <- key_get("nv_caucus_comment_sheet")  %>% 
     read_sheet()
   
+  comment_sheet <- comment_sheet %>%
+    mutate(precinct_full = as.character(precinct_full))
 
   data <- data %>% 
     left_join(comment_sheet, by = c("precinct_full", "county"))
