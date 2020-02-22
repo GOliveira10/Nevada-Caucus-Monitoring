@@ -40,6 +40,10 @@ repeat{
       
       source("./nevada_scripts/nevada_full_analysis_script.R")
       
+    } else {
+      
+      message("No updates.")
+      
     }
     
   }
