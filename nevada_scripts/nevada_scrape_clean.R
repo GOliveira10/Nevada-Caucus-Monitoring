@@ -28,7 +28,7 @@ results <- results %>%
   mutate_at(vars(votes, votes_align1, votes_alignfinal, result), as.numeric) %>% 
   filter(county != "Sample") %>%
   select(-c(locality_fips, locality_type, is_geographic)) %>% 
-  mutate(precinct = precinct_id) %>%
+  mutate(precinct = precinct_name) %>%
   filter(round != "results") %>% 
   mutate(is_complete = as.logical(is_complete)) %>% 
   mutate(precinct_full = paste(precinct, precinct_id, sep = "_")) %>% 
@@ -65,6 +65,9 @@ delegates <- delegates %>%
 results <- results %>% 
   select(-county) %>% 
   left_join(delegates)
+
+
+results <- results %>% arrange(desc(precinct_name))
 
 timestamped_name <- paste0("./nevada_data/cleaned_timestamped/cleaned_timestamped_", strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv")
 

@@ -38,7 +38,7 @@ d <- d %>%
       game_of_chance == "too_many_del_tie" &
       final_del > 1 ~ final_del - 1,
     TRUE ~ final_del
-  ))
+  )) 
 
 # and the same thing for too_few_del_tie
 
