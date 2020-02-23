@@ -141,6 +141,13 @@ do_caucus_math <- function(data){
       TRUE ~ FALSE
     ))
   
+  data <- data %>% 
+    group_by(precinct_full) %>% 
+    mutate(del_count_diff = case_when(
+      reported_del_given != final_del ~ TRUE,
+      TRUE ~ FALSE
+    ))
+  
   return(data)
 }
 
