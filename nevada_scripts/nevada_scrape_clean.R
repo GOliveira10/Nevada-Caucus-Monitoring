@@ -9,6 +9,20 @@ precincts <- GET('https://int.nyt.com/applications/elections/2020/data/api/2020-
   content()
 
 
+precincts <- GET('https://nevadacaucusresults.com/results/nv_caucus_precinct_results.json') %>% content()
+
+precincts <- precincts %>% 
+  map(bind_rows) %>% 
+  bind_rows() %>%
+  separate(precinct_id, into = c("county", "precinct")) %>% 
+  pivot_longer(cols = 4:ncol(.)) %>%
+  separate(name, into = c("candidate", "round")) %>%
+  mutate(round = case_when(round == "first" ~ "align1",
+                           round == "final" ~ "alignfinal",
+                           round == "county" ~ "votes")) %>%
+  pivot_wider(names_from = round, values_from = value)
+
+
 precincts <- precincts$precincts %>% 
   map_if(negate(is.list), function(x) flatten_chr(x)) %>% enframe()
 
