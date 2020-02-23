@@ -5,7 +5,7 @@ library(httr)
 # For questions contact @MCulshawMaurer on twitter or @MCMaurer on GitHub
 
 # pull the data in and get the relevant results
-precincts <- GET("https://int.nyt.com/applications/elections/2020/data/api/2020-02-03/precincts/IowaDemPrecinctsSFTP-latest.json") %>%
+precincts <- GET("https://int.nyt.com/applications/elections/2020/data/api/2020-02-22/precincts/NevadaDemPrecinctsSFTP-latest.json") %>%
   content()
 precincts
 precincts$precincts

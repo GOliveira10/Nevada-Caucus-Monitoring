@@ -14,7 +14,7 @@ precincts <- precincts$precincts %>%
 
 # making the results into something legible
 results <- precincts$value %>% 
-  map(unlist) %>% 
+  map(unlist) %>%
   map(map, as.character) %>% 
   map(bind_rows) %>% 
   bind_rows() %>% 
@@ -22,18 +22,19 @@ results <- precincts$value %>%
 
 
 results <- results %>% 
-  pivot_longer(cols = contains("results"), names_to = "result_type", values_to = "result") %>% 
+  pivot_longer(cols = contains("results"), names_to = "result_type", values_to = "result") %>%
   mutate(result_type = stringr::str_remove_all(result_type, "results_")) %>% 
   separate(col = result_type, into = c("round", "candidate")) %>% 
   mutate_at(vars(votes, votes_align1, votes_alignfinal, result), as.numeric) %>% 
   filter(county != "Sample") %>%
-  select(-c(locality_fips, locality_type, is_geographic)) %>% 
+  select(-c(locality_fips, locality_type, is_geographic, votes_alignfinal, votes_align1, votes)) %>% 
   mutate(precinct = precinct_name) %>%
   filter(round != "results") %>% 
   mutate(is_complete = as.logical(is_complete)) %>% 
   mutate(precinct_full = paste(precinct, precinct_id, sep = "_")) %>% 
   pivot_wider(names_from = round, values_from = result) %>%
-  rename(GEOID10 = geo_id)
+  rename(GEOID10 = geo_id)  
+  # mutate(GEOID10 = str_remove(GEOID10, "-"))
 
 
 delegates <- read_csv("nevada_dems_docs/nevada_delegate_apportionment.csv") %>% 
@@ -62,14 +63,20 @@ strip_delegates <- tibble(county = "Clark",
 delegates <- delegates %>% 
   bind_rows(strip_delegates)
   
+delegates <- delegates %>% mutate(county = str_extract(county, "([^\\s]+)"))
+
+results <- results %>% mutate(county = str_extract(county, "([^\\s]+)"))
+
+
 results <- results %>% 
-  select(-county) %>% 
   left_join(delegates)
 
 
 results <- results %>% arrange(desc(precinct_name))
 
 timestamped_name <- paste0("./nevada_data/cleaned_timestamped/cleaned_timestamped_", strftime(Sys.time(), format = "%Y-%m-%d_%H%M%S"), ".csv")
+
+results <- results %>% mutate(county = toupper(county))
 
 results %>% write_csv(timestamped_name)
 

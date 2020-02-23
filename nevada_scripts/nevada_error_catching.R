@@ -1,10 +1,10 @@
 library(tidyverse)
 
 find_all_errors <- function(data){
-  data <- data %>% 
+  data <- data %>%
     group_by(precinct_full) %>% 
     mutate(total_align1 = sum(align1),
-           total_alignfinal = sum(alignfinal)) %>% 
+           total_alignfinal = sum(alignfinal)) %>% filter(total_align1 != 0) %>%
     mutate(viability_threshold = case_when(
       precinct_delegates >= 4 ~ ceiling(0.15*total_align1),
       precinct_delegates == 3 ~ ceiling((1/6)*total_align1),
