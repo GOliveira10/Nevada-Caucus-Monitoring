@@ -99,8 +99,14 @@ too_few_process <- function(data){
 do_caucus_math <- function(data){
   
   data <- data %>% 
+    group_by(precinct_full) %>%
+    mutate(unviable_unallocated = sum(alignfinal[!viablefinal])) %>%
+    mutate(expected_align_final = case_when(!viablefinal & candidate != "Uncommitted" ~ 0,
+                                            viablefinal & candidate != "Uncommitted" ~ alignfinal,
+                                            candidate == "Uncommitted" ~ alignfinal + unviable_unallocated)) %>%
+    ungroup() %>%
     mutate(caucus_formula_result = case_when(
-      viablefinal ~ round((alignfinal * precinct_delegates) / total_align1, digits = 4),
+      viablefinal ~ round((expected_align_final * precinct_delegates) / total_align1, digits = 4),
       TRUE ~ 0
     )) %>% 
     mutate(after_rounding = round(caucus_formula_result)) %>% 

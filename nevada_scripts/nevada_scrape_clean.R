@@ -4,6 +4,7 @@ library(httr)
 
 # For questions contact @MCulshawMaurer on twitter or @MCMaurer on GitHub
 scrape_clean_write <- function(){
+  
 # pull the data in and get the relevant results
 nyt_precincts <- GET('https://int.nyt.com/applications/elections/2020/data/api/2020-02-22/precincts/NevadaDemPrecinctsGcs-latest.json') %>%
    content()
@@ -43,7 +44,7 @@ precincts <- GET('https://nevadacaucusresults.com/results/nv_caucus_precinct_res
 results <- precincts %>% 
   map(bind_rows) %>% 
   bind_rows() %>%
-  separate(precinct_id, into = c("county", "precinct")) %>% 
+  separate(precinct_id, into = c("county", "precinct"), sep = " - ") %>% 
   pivot_longer(cols = 4:ncol(.)) %>%
   separate(name, into = c("candidate", "round")) %>%
   mutate(round = case_when(round == "first" ~ "align1",

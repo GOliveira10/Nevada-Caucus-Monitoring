@@ -23,7 +23,8 @@ find_all_errors <- function(data){
 
   data <- data %>% 
     mutate(nonviable_no_realign = case_when(
-      !viable1 & !viablefinal & alignfinal > 0 & candidate != "uncommitted" ~ TRUE,
+      !viable1 & !viablefinal & alignfinal > 0 & candidate != "uncommitted" & 
+        precinct_delegates != 1 ~ TRUE,
       TRUE ~ FALSE
     ))
   
